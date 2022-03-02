@@ -1,5 +1,5 @@
-import noteList from '../cmps/note-list.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
+import noteList from '../cmps/note-list.cmp.js'
 
 export default {
   // props: [""],

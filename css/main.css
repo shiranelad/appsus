@@ -9,3 +9,7 @@
 
 /* COMPONENTS */
 @import 'cmps/app-header-footer.css';
+
+/* KEEP */
+@import 'apps/keep/notes-list.css';
+@import 'apps/keep/notes-filter.css';
