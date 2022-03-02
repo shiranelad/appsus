@@ -1,6 +1,6 @@
 // import bookApp from './miss-book/views/book-app.cmp.js';
 import homePage from './pages/app-home.cmp.js'
-import mailApp from './apps/mail/pages/mail-app.cmp.js'
+import emailApp from './apps/email/pages/email-app.cmp.js'
 import keepApp from './apps/keep/pages/note-app.cmp.js'
 // import bookApp from './apps/book/pages/book-app.cmp.js'
 import aboutPage from './pages/app-about.cmp.js'
@@ -16,8 +16,8 @@ const routes = [
     //     component: bookApp
     // },
     {
-        path: '/mail',
-        component: mailApp,
+        path: '/email',
+        component: emailApp,
     },
     {
         path: '/keep',
