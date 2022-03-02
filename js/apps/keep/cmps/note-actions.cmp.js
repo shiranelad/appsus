@@ -3,12 +3,12 @@ export default {
   props: ["noteType"],
   template: `
         <aside class="note-item-actions flex space-between">
-                <i v-if="noteType === 'note-img'" title="Image note" class="far fa-image visible note-icons"></i>
-                <i v-if="noteType === 'note-video'" title="Text note" class="fab fa-youtube visible note-icons"></i>
-                <i v-if="noteType === 'note-txt'" title="Text note" class="fas fa-font visible note-icons"></i>
-                <i v-if="noteType === 'note-todos'" title="Text note" class="fas fa-list visible note-icons"></i>
-                <i title="Pin note" class="fas fa-thumbtack note-icons"></i> 
-                <i title="Mark note" class="fas fa-check marked note-icons"></i> 
+                <i v-if="noteType === 'note-img'" title="Image note" class="far fa-image visible"></i>
+                <i v-if="noteType === 'note-video'" title="Text note" class="fab fa-youtube visible "></i>
+                <i v-if="noteType === 'note-txt'" title="Text note" class="fas fa-font visible visible"></i>
+                <i v-if="noteType === 'note-todos'" title="Text note" class="fas fa-list visible visible"></i>
+                <i @click="emitPin" title="Pin note" class="fas fa-thumbtack note-icons"></i> 
+                <i @click="emitMark" title="Mark note" class="fas fa-check marked note-icons"></i> 
                 <i title="Change note color" class="fas fa-palette info colors dropdown note-icons">
                     <div class="dropdown-content">
                         <span @click="emitColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
@@ -23,8 +23,8 @@ export default {
                         <span @click="emitColor('#102E4A')" style="background-color: #102E4A;"> &nbsp; </span>
                     </div>
                 </i> 
-                <i title="Edit note" class="fas fa-edit note-icons"></i> 
-                <i title="Clone note" class="fas fa-clone info note-icons"></i> 
+                <i @click="emitEdit" title="Edit note" class="fas fa-edit note-icons"></i> 
+                <i @click="emitClone" title="Clone note" class="fas fa-clone info note-icons"></i> 
                 <i @click="emitDelete" title="Delete note" class="fas fa-trash-alt danger note-icons"></i>
             </aside>
     `,
@@ -40,6 +40,18 @@ export default {
     },
     emitColor(color) {
       this.$emit('setColor', color)
+    },
+    emitPin(){
+      this.$emit('setPin')
+    },
+    emitClone() {
+      this.$emit('setClone')
+    },
+    emitMark(){
+      this.$emit('setMark')
+    },
+    emitEdit() {
+      this.$emit('edit')
     }
   },
   computed: {},

@@ -4,15 +4,15 @@ import noteActions from "./note-actions.cmp.js"
 export default {
   props: ["info", "cmpData"],
   template: `
-        <section v-if="info.todos.length" class="note-card">
+        <section v-if="info.todos.length" :class="markNote" :style="info.style" class="note-card">
             <h3>{{info.title}}</h3>
             <ul>
-                <li v-for="(todo, idx) in info.todos" :style="todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': 'none'}" @click="toggleMark(idx)">
+                <li v-for="(todo, idx) in info.todos" :style="todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': 'none'}" @click="toggleDone(idx)">
                     {{todo.txt}}
                     <i @click="removeTodo(idx)" class="fa-solid fa-x delete-todo-icon"></i>
                   </li>
             </ul>
-            <note-actions @delete="deleteNote" @setColor="setColor" :noteType="cmpData.type"></note-actions>
+            <note-actions @delete="deleteNote" @setColor="setColor" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type"></note-actions>
         </section>
     `,
   components: {
@@ -27,12 +27,14 @@ export default {
     }
   },
   methods: {
-    toggleMark(idx) {
+    toggleDone(idx) {
       console.log(this.info.todos[idx].doneAt)
       this.info.todos[idx].doneAt = (this.info.todos[idx].doneAt) ? null : Date.now()
     },
     deleteNote(){
-      noteService.remove(this.noteData.id)
+      noteService.remove(this.noteData.id).then(()=> {
+        this.$emit('updateData')
+      })
     },
     removeTodo(idx){
       console.log('this.noteData',this.noteData.info.todos);
@@ -42,9 +44,34 @@ export default {
     },
     setColor(color) {
       this.noteData.style.backgroundColor = color
+      noteService.save(this.noteData)
+    },
+    setPin() {
+      if(!this.noteData.isPinned ) {
+        this.noteData.isPinned = true
+      } else this.noteData.isPinned = !this.noteData.isPinned 
+      noteService.save(this.noteData).then(()=> {
+        this.$emit('updateData')
+      })
+    },
+    setMark() {
+      if(!this.noteData.isMarked){
+        this.noteData.isMarked = true
+      } else this.noteData.isMarked = !this.noteData.isMarked
+      noteService.save(this.noteData)
+    },
+    setClone() {
+      let copyNote = {...this.noteData}
+      copyNote.id = null
+      noteService.save(copyNote).then(()=>{
+        this.$emit('updateData')
+      })
     }
   },
   computed: {
+    markNote() {
+      if(this.noteData.isMarked) return 'marked-note'
+    }
   },
   unmounted() {},
 }

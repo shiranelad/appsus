@@ -1,4 +1,6 @@
 import { noteService } from "../services/note.service.js";
+import { eventBus } from "../../../services/eventBus-service.js"
+
 export default {
   // props: [""],
   template: `
@@ -47,6 +49,9 @@ export default {
       this.val = null;
       this.title = "";
       this.noteType = "text";
+      setTimeout(() => {
+        eventBus.emit('updateByBus')
+      }, 500);
     },
 
     setType(type) {
