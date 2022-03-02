@@ -1,3 +1,11 @@
 .email-list {
     padding: 0;
 }
+
+.email-selected {
+    background-color:lightblue;
+}
+
+.email-item {
+    background-color: var(--clr8);
+}

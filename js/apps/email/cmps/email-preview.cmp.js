@@ -5,7 +5,7 @@ export default {
     props: ['currEmail'],
     template: `
             <tr>
-                <td><i class="icon email-checkbox" :class="checkboxClass" @click="isChecked = !isChecked"></i></td>
+                <td><i class="icon email-checkbox" :class="checkboxClass" @click="selectWithCheck"></i></td>
                 <td>
                     <i class="icon star" :class="starClass" @click="setStar(currEmail)"></i>
                 </td>
@@ -13,7 +13,7 @@ export default {
                     <i class="icon imp" :class="impClass" @click="isImpMarked = !isImpMarked"></i>
                 </td>
                 <td class="email-from" :class="readClass">{{currEmail.from}}</td>
-                <td class="email-subject" :class="readClass">{{currEmail.subject}}<span class="email-body"> - {{currEmail.body}}</td>
+                <td class="email-subject"><span :class="readClass">{{currEmail.subject}}</span><span class="email-body"> - {{currEmail.body}}</td>
                 <td class="email-time">{{dispDateTime}}</td>
                 <td class="action-icons d-none gap-5" >
                     <i class="icon email-delete" title="Delete" @click="remove(currEmail.id)"></i>
@@ -44,6 +44,17 @@ export default {
         
         select(email) {
             this.$emit('selected', email);
+        },
+
+        unselect(email) {
+            this.$emit('unselected', email);
+        },
+
+
+        selectWithCheck(email){
+            this.isChecked = !this.isChecked
+            if (this.isChecked) this.select(email)
+            else this.unselect(email)
         },
 
         toggleRead(email){
