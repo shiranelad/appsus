@@ -1,4 +1,4 @@
-
+import noteActions from "./note-actions.cmp.js"
 
 export default {
   props: ["info"],
@@ -10,9 +10,12 @@ export default {
                     {{todo.txt}}
                 </li>
             </ul>
+            <note-actions></note-actions>
         </section>
     `,
-  components: {},
+  components: {
+    noteActions
+  },
   created() {},
   data() {
     return {}

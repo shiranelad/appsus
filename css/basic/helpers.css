@@ -26,6 +26,10 @@
     display: grid;
 }
 
+.gap-5 {
+    gap: .5rem
+}
+
 .btn {
     background-color: white;
     height: 2.5rem;
