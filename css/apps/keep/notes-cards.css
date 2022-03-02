@@ -1,0 +1,68 @@
+.note-card {
+    width: 240px;
+    height: auto;
+    margin-block-end: 1rem;
+    break-inside: avoid;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.note-card ul {
+    list-style: circle;
+    border-radius: .5rem;
+    padding: 0 1.2em;
+    transition: background-color .3s;
+}
+.note-card ul:hover {
+    background-color: rgba(0, 0, 0, 0.178);
+}
+
+.note-card img {
+    max-width: 100%;
+    border-radius: .5rem;
+}
+
+.note-card h1,
+.note-card h2,
+.note-card h3,
+.note-card h4,
+.note-card h5,
+.note-card p {
+    margin-block-start: 0;
+    margin-block-end: .5rem;
+}
+
+.dropdown-content span {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-right: 1px;
+}
+.note-item-actions i {
+    cursor: pointer;
+}
+.dropdown-content {
+    position: absolute;
+    transform: translateX(-40%);
+    width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s;
+}
+.dropdown:hover > .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+.note-item-actions {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+}
+.note-card:hover > .note-item-actions {
+    opacity: 1;
+    visibility: visible;
+}
+

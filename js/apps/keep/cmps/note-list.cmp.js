@@ -3,6 +3,7 @@ import notePreview from '../cmps/note-preview.cmp.js'
 import noteTxt from '../cmps/note-txt.cmp.js'
 import noteImg from '../cmps/note-img.cmp.js'
 import noteTodos from '../cmps/note-todos.cmp.js'
+import noteVideo from './note-video.cmp.js'
 
 export default {
   // props: [""],
@@ -17,7 +18,8 @@ export default {
     notePreview,
     noteTxt,
     noteImg,
-    noteTodos
+    noteTodos,
+    noteVideo
   },
   data() {
     return {
@@ -26,7 +28,6 @@ export default {
   },
   created() {
     noteService.query().then(noteList =>{
-      console.log('noteList',noteList);
       this.notes = noteList
       })
   },
