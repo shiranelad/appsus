@@ -1,5 +1,5 @@
 import { emailService } from '../services/email.service.js'
-import emailPreview from "../cmps/email-preview.cmp.js"
+import emailPreview from '../cmps/email-preview.cmp.js'
 // import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 // import emailDetails from '../views/book-email.cmp.js'
@@ -14,7 +14,7 @@ export default {
           <!-- <email-filter @filtered="setFilter" ></email-filter> -->
           <email-preview></email-preview>
             <email-list :emails="emailsToShow" @remove="removeEmail" @selected="selectEmail"></email-list>
-            <email-details :book="selectedEmail" v-if="selectedEmail"></email-details>
+            <!-- <email-details :book="selectedEmail" v-if="selectedEmail"></email-details> -->
         </section>
 
     `,
@@ -25,7 +25,13 @@ export default {
     showSuccessMsg,
     showErrorMsg
   },
-  created() {},
+  created() {
+    emailService.query()
+    .then(emails => {
+      this.emails = emails
+      // console.log(emails)
+    });
+  },
   data() {
     return {
       emails: null,

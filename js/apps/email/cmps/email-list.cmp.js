@@ -6,11 +6,13 @@ export default {
         <section>
             <ul class="email-list">
                 <li v-for="email in emails" :key="email.id" class="email-item">
-                    <book-preview :email="email" />
-                    <div class="actions">
+                    <table>
+                    <email-preview :email="email" />
+                    </table>
+                    <!-- <div class="actions">
                         <button @click="remove(email.id)">X</button>
                         <router-link :to="'/email/'+email.id">Details</router-link>
-                    </div>
+                    </div> -->
                 </li>
             </ul>
         </section>
@@ -23,7 +25,7 @@ export default {
     },
     data() {
         return {
-
+            emails : null,
         }
     },
     methods: {

@@ -1,6 +1,7 @@
+import { utilService } from '../../../services/util.service.js'
 
 export default {
-    // props: [""],
+    props: ['email'],
     template: `
         <section class="main-layout">
             <tr>
@@ -11,7 +12,7 @@ export default {
                 <td>
                     <i class="icon imp"></i>
                 </td>
-                    {{email.subject}}
+                    <!-- {{email.subject}} -->
                 <td>
                 </td>
                 <td></td>
@@ -21,10 +22,9 @@ export default {
         </section>
     `,
     components: {
-        emailService,
     },
     created() {
-        this.email = emailService.email
+        console.log(this.email)
      },
     data() {
         return {
