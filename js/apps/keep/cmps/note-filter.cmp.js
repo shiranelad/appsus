@@ -4,7 +4,7 @@ export default {
         <section>
           <div class="search-box">
             <input v-model="val" type="text" placeholder="Search">
-            <button @click>Search</button>
+            <button @click="searchVal">Search</button>
           </div>
         </section>
     `,
@@ -15,7 +15,11 @@ export default {
       val: null,
     }
   },
-  methods: {},
+  methods: {
+    searchVal() {
+      console.log('Val has changed',this.val);
+    }
+  },
   computed: {},
   unmounted() {},
 }
