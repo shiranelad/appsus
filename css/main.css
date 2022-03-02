@@ -5,3 +5,7 @@
 /* BASIC */
 @import 'basic/helpers.css';
 @import 'basic/base.css';
+@import 'basic/main-layout.css';
+
+/* COMPONENTS */
+@import 'cmps/app-header-footer.css';
