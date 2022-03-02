@@ -3,7 +3,6 @@ import { utilService } from '../../../services/util.service.js'
 export default {
     props: ['currEmail'],
     template: `
-        <!-- <section > -->
             <tr>
                 <td><i class="icon email-checkbox" :class="checkboxClass" @click="isChecked = !isChecked"></i></td>
                 <td>
@@ -13,16 +12,10 @@ export default {
                     <i class="icon imp" :class="impClass" @click="isImpMarked = !isImpMarked"></i>
                 </td>
                 <td class="email-from">{{currEmail.from}}</td>
-                <td v-if="checkLabels">
-                    <ul>
-                        <li v-for="label in currEmail.labels">{{label}}</li>
-                    </ul>
-                </td>
-                <td class="email-subject">{{currEmail.subject}}</td>
-                <td class="email-body"> - {{currEmail.body}}</td>
-                <td></td>
+                <td class="email-subject">{{currEmail.subject}}<span class="email-body"> - {{currEmail.body}}</td>
+                <!-- <td class="email-body"> - {{currEmail.body}}</td> -->
+                <td class="email-time">{{dispDateTime}}</td>
             </tr>
-        <!-- </section> -->
     `,
     components: {
     },
@@ -34,7 +27,8 @@ export default {
             isStarMarked: false,
             isImpMarked: false,
             isChecked: false,
-            labels: false
+            labels: false,
+            labelsList: []
         }
     },
     methods: {},
@@ -50,9 +44,37 @@ export default {
         },
         checkLabels(){
             if(!this.currEmail.labels || !this.currEmail.labels.length ) return
-            console.log(this.currEmail.labels)
+            this.labelsList = this.currEmail.labels
+            
+            console.log(this.labelsList)
             this.labels = true
-        }
+        },
+        dispDateTime(){
+            let dt = new Date(this.currEmail.sentAt)
+            var hours = dt.getHours()
+            var minutes = dt.getMinutes()
+            var ampm = (hours < 12 ? 'AM' : 'PM')
+            if (ampm === 'PM' && hours > 12) {
+                hours = hours - 12
+            }
+            if (minutes < 10) minutes = '0' + minutes
+
+            var monthName = dt.toLocaleString('default', { month: 'short' })
+
+            let todayDisp = hours + ':' + minutes + ' ' + ampm
+            let monthDisp = monthName + ' ' + dt.getDate()
+            let yearDisp = dt.getDate() + '/' + (dt.getMonth()+1) + '/' + dt.getFullYear()
+
+            var today = new Date()
+
+            if (dt.getDate() === today.getDate() && dt.getMonth() === today.getMonth() && dt.getFullYear() === today.getFullYear()){
+                return todayDisp
+            }
+            else if ( dt.getMonth() === today.getMonth() && dt.getFullYear() === today.getFullYear() )
+                return monthDisp
+            else return yearDisp
+        },
+
     },
     unmounted() { },
 }

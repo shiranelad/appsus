@@ -26,7 +26,8 @@ td {
     height: 20px;
     font-family: 'Roboto';
     cursor: pointer;
-
+    font-size:0.8em;
+    /* border: 1px solid black; */
 }
 
 tr {
@@ -51,7 +52,7 @@ li:not(:last-child){
 }
 
 .email-from {
-    width:300px;
+    min-width:300px;
 }
 
 .star {
@@ -76,15 +77,6 @@ li:not(:last-child){
 
 }
 
-.email-subject {
-    padding-inline-end: 1px;
-}
-
-.email-body{
-    color: var(--clr9);
-    text-align: start;
-}
-
 .email-checkbox {
     background-image: url('https://www.gstatic.com/images/icons/material/system/1x/check_box_outline_blank_black_20dp.png');
     background-repeat: no-repeat;
@@ -101,6 +93,27 @@ li:not(:last-child){
     opacity: 1;
 }
 
-table:hover > * > * > * {
+table:hover > tr > td > i {
     opacity: 1;
 }
+
+.email-subject {
+    padding-inline-end: 1px;
+    width:30%;
+    text-align: start;
+    width:65%;
+}
+
+.email-body{
+    color: var(--clr9);
+    text-align: start;
+    width: 30%; 
+}
+
+
+.email-time {
+    text-align: end;
+    /* border:solid 1px black; */
+    width:10%;
+}
+
