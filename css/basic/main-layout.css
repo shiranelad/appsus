@@ -2,3 +2,8 @@
 .main-layout {
     margin: 0 20px;
 }
+
+.main-content {
+    min-height: calc(100vh - 100px);
+
+}

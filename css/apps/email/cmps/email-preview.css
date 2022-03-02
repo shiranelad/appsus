@@ -1,0 +1,105 @@
+.icon {
+    width:22px;
+    height:22px;
+    display:inline-block;
+}
+
+.imp {
+    background-image: url('../../../../img/important-50-empty.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.imp-marked {
+    background-image: url('../../../../img/important-50-filled.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* transform: translateY(0px); */
+}
+
+
+td {
+    padding-right: 30px;
+    height: 20px;
+    font-family: 'Roboto';
+    cursor: pointer;
+
+}
+
+tr {
+    height: 20px;
+}
+
+li {
+    padding: 10px 0;
+}
+
+li:hover{
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    z-index: 2;
+}
+
+li:not(:last-child){
+    border-bottom: var(--clr10) 1px solid;
+}
+
+.emails-table{
+    background-color: var(--clr8);
+}
+
+.email-from {
+    width:300px;
+}
+
+.star {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_black_20dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.16;
+}
+
+/* .star:hover {
+    opacity: 1;
+} */
+
+.starred {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/star_googyellow500_20dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size:20px;
+    opacity: 1;
+
+}
+
+.email-subject {
+    padding-inline-end: 1px;
+}
+
+.email-body{
+    color: var(--clr9);
+    text-align: start;
+}
+
+.email-checkbox {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/check_box_outline_blank_black_20dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;   
+    opacity: 0.16;
+}
+
+.email-checkbox-checked {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/check_box_black_20dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;   
+    opacity: 1;
+}
+
+li:hover > * > * > * > * {
+    opacity: 1;
+}
