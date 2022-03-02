@@ -10,7 +10,7 @@ import { showSuccessMsg , showErrorMsg} from '../../../services/eventBus-service
 export default {
   // props: [""],
   template: `
-        <section class="main-layout">
+        <section class="main-layout main-content">
           <!-- <email-filter @filtered="setFilter" ></email-filter> -->
           <!-- <email-preview></email-preview> -->
             <email-list :emails="emails" @remove="removeEmail" @selected="selectEmail"></email-list>

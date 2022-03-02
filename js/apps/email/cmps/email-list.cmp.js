@@ -3,10 +3,11 @@ import emailPreview from './email-preview.cmp.js'
 export default {
     props: ['emails'],
     template: `
-        <section>
+        <section class="emails-table">
             <ul class="email-list">
+                
                 <li v-for="email in emails" :key="email.id" class="email-item">
-                    <table>
+                    <table class="main-layout">
                     <email-preview :currEmail="email" />
                     </table>
                     <!-- <div class="actions">
@@ -21,7 +22,7 @@ export default {
         emailPreview,
     },
     created(){
-        console.log(this.emails)
+        // console.log(this.emails)
     },
     data() {
         return {
