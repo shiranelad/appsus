@@ -9,3 +9,6 @@
 
 /* COMPONENTS */
 @import 'cmps/app-header-footer.css';
+
+/* EMAIL */
+@import 'apps/email/basic/base.css';
