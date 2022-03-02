@@ -13,7 +13,7 @@ export default {
         <section class="main-layout main-content">
           <!-- <email-filter @filtered="setFilter" ></email-filter> -->
           <!-- <email-preview></email-preview> -->
-            <email-list :emails="emails" @remove="removeEmail" @selected="selectEmail"></email-list>
+            <email-list :emails="emails"  @selected="selectEmail"></email-list>
             <!-- <email-details :book="selectedEmail" v-if="selectedEmail"></email-details> -->
         </section>
 
@@ -38,7 +38,9 @@ export default {
 
     }
   },
-  methods: {},
+  methods: {
+   
+  },
   computed: {},
   unmounted() {},
 }

@@ -97,6 +97,14 @@ table:hover > tr > td > i {
     opacity: 1;
 }
 
+table:hover > tr > .action-icons  {
+    display:flex;
+}
+
+table:hover > tr > .email-time {
+    display:none;
+}
+
 .email-subject {
     padding-inline-end: 1px;
     width:30%;
@@ -110,10 +118,40 @@ table:hover > tr > td > i {
     width: 30%; 
 }
 
-
 .email-time {
     text-align: end;
     /* border:solid 1px black; */
     width:10%;
 }
 
+.email-delete{
+    background-image: url('../../../../img/baseline_delete_black_24dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size:20px;
+    opacity: 1;
+
+}
+
+.email-read{
+    background-image: url('../../../../img/baseline_mark_as_unread_black_24dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size:20px;
+    opacity: 1;
+}
+
+.email-unread{
+    background-image: url('../../../../img/baseline_drafts_black_24dp.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size:20px;
+    opacity: 1;
+}
+
+.unread-status {
+    font-weight: bold;
+}

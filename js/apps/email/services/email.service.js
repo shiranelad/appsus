@@ -25,6 +25,40 @@ function query() {
     return storageService.query(EMAILS_KEY)
 }
 
+function remove(emailId) {
+    return storageService.remove(EMAILS_KEY, emailId)
+}
+function getEmailById(emailId) {
+    return storageService.get(EMAILS_KEY, emailId)
+    .then( email => {
+            return _setNextPrevEmailId(email)
+    })
+}
+
+function save(email) {
+    return storageService.post(EMAILS_KEY, email)
+}
+
+
+function _setNextPrevEmailId(email) {
+    return storageService.query(EMAILS_KEY).then(emails => {
+        const emailIdx = emails.findIndex(currEmail => currEmail.id === email.id)
+        email.nextEmailId = (emails[emailIdx+1])? emails[emailIdx+1].id : emails[0].id
+        email.prevEmailId = (emails[emailIdx-1])? emails[emailIdx-1].id : emails[emails.length-1].id
+        return email
+    })
+}
+
+function updateEmail(email){
+    return storageService.put(EMAILS_KEY, email)
+}
+
+
+
 export const emailService = {
     query,
+    remove,
+    getEmailById,
+    save,
+    updateEmail
 }

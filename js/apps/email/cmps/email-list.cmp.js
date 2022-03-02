@@ -1,4 +1,6 @@
+import { emailService } from '../services/email.service.js'
 import emailPreview from './email-preview.cmp.js'
+
 
 export default {
     props: ['emails'],
@@ -8,10 +10,9 @@ export default {
                 
                 <li v-for="email in emails" :key="email.id" class="email-item">
                     <table class="main-layout">
-                    <email-preview :currEmail="email" />
+                    <email-preview :currEmail="email" @remove="removeEmail"/>
                     </table>
                     <!-- <div class="actions">
-                        <button @click="remove(email.id)">X</button>
                         <router-link :to="'/email/'+email.id">Details</router-link>
                     </div> -->
                 </li>
@@ -22,22 +23,21 @@ export default {
         emailPreview,
     },
     created(){
-        // console.log(this.emails)
+        
     },
     data() {
         return {
-            // emails: this.emails,
+        
         }
     },
     methods: {
-        remove(id){
-            this.$emit('remove', id);
+        removeEmail(id) {
+            emailService.remove(id)
+                .then(() => {
+                    const idx = this.emails.findIndex(email => email.id === id)
+                    this.emails.splice(idx, 1)
+                }) 
         },
-        
-        select(book) {
-            this.$emit('selected', book);
-        }
-
 
     },
     computed: {

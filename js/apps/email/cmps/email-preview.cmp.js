@@ -1,4 +1,5 @@
 import { utilService } from '../../../services/util.service.js'
+import { emailService } from '../services/email.service.js';
 
 export default {
     props: ['currEmail'],
@@ -6,15 +7,19 @@ export default {
             <tr>
                 <td><i class="icon email-checkbox" :class="checkboxClass" @click="isChecked = !isChecked"></i></td>
                 <td>
-                    <i class="icon star" :class="starClass" @click="isStarMarked = !isStarMarked"></i>
+                    <i class="icon star" :class="starClass" @click="setStar(currEmail)"></i>
                 </td>
                 <td>
                     <i class="icon imp" :class="impClass" @click="isImpMarked = !isImpMarked"></i>
                 </td>
-                <td class="email-from">{{currEmail.from}}</td>
-                <td class="email-subject">{{currEmail.subject}}<span class="email-body"> - {{currEmail.body}}</td>
-                <!-- <td class="email-body"> - {{currEmail.body}}</td> -->
+                <td class="email-from" :class="readClass">{{currEmail.from}}</td>
+                <td class="email-subject" :class="readClass">{{currEmail.subject}}<span class="email-body"> - {{currEmail.body}}</td>
                 <td class="email-time">{{dispDateTime}}</td>
+                <td class="action-icons d-none gap-5" >
+                    <i class="icon email-delete" title="Delete" @click="remove(currEmail.id)"></i>
+                    <i class="icon" :class="setReadIcon" @click="toggleRead(currEmail)" :title="setReadUnread"></i>
+                </td>
+                </td>
             </tr>
     `,
     components: {
@@ -28,10 +33,33 @@ export default {
             isImpMarked: false,
             isChecked: false,
             labels: false,
-            labelsList: []
+            labelsList: [],
         }
     },
-    methods: {},
+    methods: {
+
+        remove(id){
+            this.$emit('remove', id);
+        },
+        
+        select(email) {
+            this.$emit('selected', email);
+        },
+
+        toggleRead(email){
+            this.currEmail.isRead = !this.currEmail.isRead
+            emailService.updateEmail(email)
+            .then(email => this.currEmail.isRead = email.isRead)
+        },
+
+        setStar(email){
+            this.isStarMarked = !this.isStarMarked 
+            email.isStarred = this.isStarMarked 
+            emailService.updateEmail(email)
+            .then(email => this.currEmail.isStarred = email.isStarred)
+        }
+
+    },
     computed: {
         starClass(){
             return {starred: this.isStarMarked , star: !this.isStarMarked }
@@ -74,6 +102,23 @@ export default {
                 return monthDisp
             else return yearDisp
         },
+
+        setReadUnread(){
+            if(this.currEmail.isRead){
+                this.markRead = 'Mark as Unread' 
+            } else this.markRead = 'Mark as Read'
+            return this.markRead
+        },
+
+        setReadIcon() {
+                return { 'email-unread' : !this.currEmail.isRead , 'email-read' : this.currEmail.isRead}
+        },
+
+        readClass(){
+            return {'unread-status' : !this.currEmail.isRead}   
+        }
+
+
 
     },
     unmounted() { },
