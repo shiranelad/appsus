@@ -4,7 +4,7 @@ body {
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
     font-size: 1.1em;
-    background-color: #9bdaffe5;
+    background-color: var(--clr6);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,14 +16,14 @@ ul {
 }
 
 hr {
-    background-color: #102e4a;
+    background-color: var(--clr1);
     height: 3px;
     border: none;
 }
 
 button {
-    color: white;
-    background-color: #102e4a;
+    color: var(--clr7);
+    background-color: var(--clr1);
     border-radius: 5px;
     height: 25px;
     margin: 5px;

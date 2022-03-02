@@ -1,8 +1,8 @@
 /* app-header , app-footer */
 .app-header,
 .app-footer {
-    background-color: #102e4a;
-    color: #a682ff;
+    background-color: var(--clr1);
+    color: var(--clr5);
     height: 50px;
 }
 
@@ -14,7 +14,7 @@
 
 .app-header h3 , .nav-bar a{
 
-    color: #a682ff;
+    color: var(--clr5);
 }
 
 .app-header a {
