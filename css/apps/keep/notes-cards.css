@@ -16,7 +16,12 @@
 .note-card ul:hover {
     background-color: rgba(0, 0, 0, 0.178);
 }
-
+.note-card li {
+    position: relative;
+}
+.note-card li:hover {
+    box-shadow: unset;
+}
 .note-card img {
     max-width: 100%;
     border-radius: .5rem;
@@ -34,8 +39,8 @@
 
 .dropdown-content span {
     display: inline-block;
-    height: 18px;
-    width: 18px;
+    height: 22px;
+    width: 22px;
     border-radius: 50%;
     border: 1px solid white;
     cursor: pointer;
@@ -46,8 +51,8 @@
 }
 .dropdown-content {
     position: absolute;
-    transform: translateX(-40%);
-    width: 200px;
+    transform: translateX(-44%);
+    width: 240px;
     visibility: hidden;
     opacity: 0;
     transition: all .2s;
@@ -66,3 +71,9 @@
     visibility: visible;
 }
 
+.delete-todo-icon {
+    position: absolute;
+    bottom: 0;
+    right: -1rem;
+    cursor: pointer;
+}

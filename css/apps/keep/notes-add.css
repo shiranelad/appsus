@@ -9,12 +9,18 @@
 .add-input:focus-visible {
     outline: none;
 }
+.long-input {
+    width: 100%;
+}
+.long-input-container {
+    width: 60%;
+}
 
 .add-note-container {
     background-color: white;
     padding: 1rem;
     height: 100px;
-    width: 400px;
+    width: 500px;
     border-radius: .5rem;
     position: relative;
 }

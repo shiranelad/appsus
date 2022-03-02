@@ -10,7 +10,7 @@ export default {
   template: `
         <section class="note-cards-container main-layout">
           <div v-for="(cmp, idx) in notes">
-            <component :is="cmp.type"  :info="{...cmp.info}" :style="cmp.style" @setVal="setAns($event, idx)"></component>
+            <component :is="cmp.type"  :info="{...cmp.info}" :cmpData="{...cmp}" :style="cmp.style" @setVal="setAns($event, idx)"></component>
           </div>
         </section>
     `,

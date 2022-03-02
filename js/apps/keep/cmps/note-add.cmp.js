@@ -5,9 +5,9 @@ export default {
         <section>
           <div class="add-notes flex justify-center align-center">
             <div class="add-note-container flex space-between align-center">
-              <div class="flex col">
+              <div class="flex col long-input-container">
                 <input v-model="title" type="text" class="add-input-title add-input" placeholder="Title">
-                <input v-model="val" @keyup.enter="addNote" type="text" class="add-input" :placeholder="holder">
+                <input v-model="val" @keyup.enter="addNote" type="text" class="add-input long-input" :placeholder="holder">
               </div>
               <div class="flex gap-5">
                 <i @click="setType('text')" class="fas fa-font fa-lg note-icons"></i>
@@ -31,11 +31,19 @@ export default {
   },
   methods: {
     addNote() {
-      if (!this.title.length) this.title = "New note";
-      if (this.noteType === "text") noteService.createTxtNote(this.title, this.val);
-      else if(this.noteType === 'img') noteService.createImgNote(this.title, this.val)
-      else if(this.noteType === 'todos') noteService.createTodoNote(this.title, this.val)
-      else if(this.noteType === 'video') noteService.createVideoNote(this.title, this.val)
+      if (this.noteType === "text"){
+        if (!this.title.length) this.title = "New note";
+        noteService.createTxtNote(this.title, this.val);
+      } else if(this.noteType === 'img'){
+        if (!this.title.length) this.title = "New image";
+        noteService.createImgNote(this.title, this.val)
+      } else if(this.noteType === 'todos'){
+        if (!this.title.length) this.title = "New list";
+        noteService.createTodoNote(this.title, this.val)
+      } else if(this.noteType === 'video'){
+        if (!this.title.length) this.title = "New video";
+        noteService.createVideoNote(this.title, this.val)
+      } 
       this.val = null;
       this.title = "";
       this.noteType = "text";

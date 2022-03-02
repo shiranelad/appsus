@@ -1,7 +1,7 @@
 import { utilService } from "../../../services/util.service.js";
 import { storageService } from "../../../services/async-storage-service.js";
 
-const STORAGE_KEY = "notesDB";
+const NOTES_KEY = "notesDB";
 _createNotes();
 
 export const noteService = {
@@ -16,26 +16,27 @@ export const noteService = {
 };
 
 function query() {
-  return storageService.query(STORAGE_KEY);
+  return storageService.query(NOTES_KEY);
 }
 
 function remove(noteId) {
-  return storageService.remove(STORAGE_KEY, noteId);
+  return storageService.remove(NOTES_KEY, noteId);
 }
 
 function get(noteId) {
-  return storageService.get(STORAGE_KEY, noteId).then((note) => {
+  return storageService.get(NOTES_KEY, noteId).then((note) => {
     return _setNextPrevCarId(note);
   });
 }
 
 function save(note) {
-  if (note.id) return storageService.put(STORAGE_KEY, note);
-  else return storageService.post(STORAGE_KEY, note);
+  if (note.id) return storageService.put(NOTES_KEY, note);
+  else return storageService.post(NOTES_KEY, note);
 }
 
 function _createNotes() {
-  let notes = utilService.loadFromStorage(STORAGE_KEY);
+  let notes = utilService.loadFromStorage(NOTES_KEY);
+  console.log('notes',notes);
   if (!notes || !notes.length) {
     notes = [];
     notes.push(
@@ -94,7 +95,7 @@ function _createNotes() {
         "white"
       )
     );
-    utilService.saveToStorage(STORAGE_KEY, notes);
+    storageService.postMany(NOTES_KEY, notes);
   }
   return notes;
 }
@@ -110,7 +111,8 @@ function createTxtNote(title, txt, style = "#102E4A") {
       backgroundColor: style,
     },
   };
-  storageService.post(STORAGE_KEY, note);
+  storageService.post(NOTES_KEY, note);
+  return note
 }
 
 function createImgNote(title, url, style = "#102E4A") {
@@ -124,7 +126,8 @@ function createImgNote(title, url, style = "#102E4A") {
       backgroundColor: style,
     },
   };
-  storageService.post(STORAGE_KEY, note);
+  storageService.post(NOTES_KEY, note);
+  return note
 }
 
 function createTodoNote(title, txt, style = "#102E4A") {
@@ -146,19 +149,23 @@ function createTodoNote(title, txt, style = "#102E4A") {
       backgroundColor: style,
     },
   };
-  storageService.post(STORAGE_KEY, note);
+  storageService.post(NOTES_KEY, note);
+  return note
 }
 
 function createVideoNote(title, url, style="#102E4A") {
+  let getVideoId = url.split('=')
+  let newUrl = `https://www.youtube.com/embed/${getVideoId[1]}`
     const note = {
         type: "note-video",
         info: {
           title,
-          url,
+          url: newUrl,
         },
         style: {
           backgroundColor: style,
         },
       };
-      storageService.post(STORAGE_KEY, note);
+      storageService.post(NOTES_KEY, note);
+      return note
 }

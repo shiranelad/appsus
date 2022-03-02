@@ -1,21 +1,34 @@
+import { noteService} from '../services/note.service.js'
 import noteActions from "./note-actions.cmp.js"
 
 export default {
-  props: ["info"],
+  props: ["info", "cmpData"],
   template: `
         <section class="note-card">
-            <iframe width="240" height="180" :src="info.url" :title="info.title"></iframe>
-            <note-actions></note-actions>
+          <h5>{{info.title}}</h5>
+            <iframe width="225" height="170" :src="info.url" :title="info.title"></iframe>
+            <note-actions @delete="deleteNote" @setColor="setColor" :noteType="cmpData.type"></note-actions>
         </section>
     `,
   components: {
     noteActions
   },
-  created() {},
-  data() {
-    return {}
+  created() {
+    this.noteData = this.cmpData
   },
-  methods: {},
+  data() {
+    return {
+      noteData: null
+    }
+  },
+  methods: {
+    deleteNote(){
+      noteService.remove(this.noteData.id)
+    },
+    setColor(color) {
+      this.noteData.style.backgroundColor = color
+    }
+  },
   computed: {},
   unmounted() {},
 }
