@@ -14,13 +14,6 @@
 @import 'apps/keep/notes-list.css';
 @import 'apps/keep/notes-add.css';
 @import 'apps/keep/notes-cards.css';
-<<<<<<< HEAD
-
-/* EMAIL */
-@import 'apps/email/basic/base.css';
-=======
-@import 'apps/keep/notes-filter.css';
->>>>>>> b3e43ac6d5ccad8ff655b3a572d1224c609dc303
 
 /* EMAIL */
 @import 'apps/email/basic/base.css';
