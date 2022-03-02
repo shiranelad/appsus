@@ -10,5 +10,11 @@
 /* COMPONENTS */
 @import 'cmps/app-header-footer.css';
 
+<<<<<<< HEAD
+/* KEEP */
+@import 'apps/keep/notes-list.css';
+@import 'apps/keep/notes-filter.css';
+=======
 /* EMAIL */
 @import 'apps/email/basic/base.css';
+>>>>>>> e7d48559298904c58890e0d023e27cdf04fee546

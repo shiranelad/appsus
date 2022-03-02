@@ -1,7 +1,11 @@
 /* Basic */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
     font-size: 1.1em;
     background-color: var(--clr6);
@@ -28,6 +32,8 @@ button {
     height: 25px;
     margin: 5px;
     cursor: pointer;
+    border: 0;
+    padding: .5em;
 }
 
 .checked {

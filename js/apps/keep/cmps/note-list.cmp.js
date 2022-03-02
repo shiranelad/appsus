@@ -1,22 +1,37 @@
+import {noteService} from '../services/note.service.js'
 import notePreview from '../cmps/note-preview.cmp.js'
+import noteTxt from '../cmps/note-txt.cmp.js'
+import noteImg from '../cmps/note-img.cmp.js'
+import noteTodos from '../cmps/note-todos.cmp.js'
 
 export default {
   // props: [""],
   template: `
         <section class="note-cards-container main-layout">
-          <div @click="showCard" class="note-card"></div>
-          <div class="note-card"></div>
-          <div class="note-card"></div>
-          <div class="note-card"></div>
+          <div v-for="(cmp, idx) in notes">
+            <component :is="cmp.type"  :info="{...cmp.info}" :style="cmp.style" @setVal="setAns($event, idx)"></component>
+          </div>
         </section>
     `,
-  components: {},
-  created() {},
+  components: {
+    notePreview,
+    noteTxt,
+    noteImg,
+    noteTodos
+  },
   data() {
-    return {}
+    return {
+      notes: null
+    }
+  },
+  created() {
+    noteService.query().then(noteList =>{
+      console.log('noteList',noteList);
+      this.notes = noteList
+      })
   },
   methods: {
-    showCard() {
+    setVal() {
       console.log('thats a card');
     }
   },
