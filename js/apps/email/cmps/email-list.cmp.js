@@ -41,10 +41,20 @@ export default {
 
         getSelected(email){
             this.selectedEmail = email
+            this.selectedEmail.isSelected = true
+            emailService.updateEmail(email)
+            .then(e => {
+                email.isSelected = true
+                e.isSelected = true
+            })
         },
         getUnSelected(email){
             this.selectedEmail = null
-
+            emailService.updateEmail(email)
+            .then(e => {
+                email.isSelected = false
+                e.isSelected = false
+            })
         },
 
         displaySelected(email){

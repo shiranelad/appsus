@@ -5,7 +5,7 @@ export default {
     props: ['currEmail'],
     template: `
             <tr>
-                <td><i class="icon email-checkbox" :class="checkboxClass" @click="selectWithCheck"></i></td>
+                <td><i class="icon email-checkbox" :class="checkboxClass" @click="selectWithCheck(currEmail)"></i></td>
                 <td>
                     <i class="icon star" :class="starClass" @click="setStar(currEmail)"></i>
                 </td>
@@ -19,13 +19,11 @@ export default {
                     <i class="icon email-delete" title="Delete" @click="remove(currEmail.id)"></i>
                     <i class="icon" :class="setReadIcon" @click="toggleRead(currEmail)" :title="setReadUnread"></i>
                 </td>
-                </td>
             </tr>
     `,
     components: {
     },
     created() {
-        // console.log(this.currEmail)
      },
     data() {
         return {
@@ -55,6 +53,9 @@ export default {
             this.isChecked = !this.isChecked
             if (this.isChecked) this.select(email)
             else this.unselect(email)
+            email.isSelected = this.isChecked
+            emailService.updateEmail(email)
+            .then(email => this.currEmail.isSelected = email.isSelected)
         },
 
         toggleRead(email){
