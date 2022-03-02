@@ -4,7 +4,7 @@ import noteList from '../cmps/note-list.cmp.js'
 export default {
   // props: [""],
   template: `
-        <section class="note-app">
+        <section class="note-app main-content">
             <note-add></note-add>
             <note-list></note-list>
         </section>
