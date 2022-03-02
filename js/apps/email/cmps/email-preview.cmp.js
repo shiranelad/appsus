@@ -1,18 +1,18 @@
 import { utilService } from '../../../services/util.service.js'
 
 export default {
-    props: ['email'],
+    props: ['currEmail'],
     template: `
         <section class="main-layout">
             <tr>
-                <td>asdasdsa</td>
+                <td></td>
                 <td>
                     <i class="fa-regular fa-star checked icon star"></i>
                 </td>
                 <td>
                     <i class="icon imp"></i>
                 </td>
-                    <!-- {{email.subject}} -->
+                    {{currEmail.subject}}
                 <td>
                 </td>
                 <td></td>
@@ -24,11 +24,10 @@ export default {
     components: {
     },
     created() {
-        console.log(this.email)
+        console.log(this.currEmail)
      },
     data() {
         return {
-            email: null,
         }
     },
     methods: {},

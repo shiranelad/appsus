@@ -12,8 +12,8 @@ export default {
   template: `
         <section class="main-layout">
           <!-- <email-filter @filtered="setFilter" ></email-filter> -->
-          <email-preview></email-preview>
-            <email-list :emails="emailsToShow" @remove="removeEmail" @selected="selectEmail"></email-list>
+          <!-- <email-preview></email-preview> -->
+            <email-list :emails="emails" @remove="removeEmail" @selected="selectEmail"></email-list>
             <!-- <email-details :book="selectedEmail" v-if="selectedEmail"></email-details> -->
         </section>
 

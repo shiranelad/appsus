@@ -7,7 +7,7 @@ export default {
             <ul class="email-list">
                 <li v-for="email in emails" :key="email.id" class="email-item">
                     <table>
-                    <email-preview :email="email" />
+                    <email-preview :currEmail="email" />
                     </table>
                     <!-- <div class="actions">
                         <button @click="remove(email.id)">X</button>
@@ -21,11 +21,11 @@ export default {
         emailPreview,
     },
     created(){
-
+        console.log(this.emails)
     },
     data() {
         return {
-            emails : null,
+            // emails: this.emails,
         }
     },
     methods: {
@@ -36,6 +36,8 @@ export default {
         select(book) {
             this.$emit('selected', book);
         }
+
+
     },
     computed: {
        
