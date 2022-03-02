@@ -1,0 +1,28 @@
+/* app-header , app-footer */
+.app-header,
+.app-footer {
+    background-color: var(--clr1);
+    color: var(--clr5);
+    height: 50px;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-header h3 , .nav-bar a{
+
+    color: var(--clr5);
+}
+
+.app-header a {
+    text-decoration: none;
+    
+}
+
+.app-footer p {
+    text-align: center;
+    padding: 15px;
+}

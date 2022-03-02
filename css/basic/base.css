@@ -1,0 +1,35 @@
+/* Basic */
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1em;
+    background-color: var(--clr6);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+hr {
+    background-color: var(--clr1);
+    height: 3px;
+    border: none;
+}
+
+button {
+    color: var(--clr7);
+    background-color: var(--clr1);
+    border-radius: 5px;
+    height: 25px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checked {
+    color: orange;
+}  
