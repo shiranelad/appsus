@@ -1,7 +1,7 @@
 import { router } from './router.js'
 import appHeader from './cmps/app-header.cmp.js'
 // import bookApp from './apps/book/pages/book-app.cmp.js'
-import mailApp from './apps/mail/pages/mail-app.cmp.js'
+import emailApp from './apps/email/pages/email-app.cmp.js'
 import keepApp from './apps/keep/pages/note-app.cmp.js'
 import appFooter from './cmps/app-footer.cmp.js'
 import userMsg from './cmps/user-msg.cmp.js'
@@ -20,7 +20,7 @@ const options = {
     components: {
         appHeader,
         // bookApp,
-        mailApp,
+        emailApp,
         keepApp,
         appFooter,
         userMsg
