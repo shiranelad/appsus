@@ -42,57 +42,37 @@ function _createNotes() {
     notes.push(
       createTxtNote(
         "Getting my shit togheter",
-        utilService.makeLorem(5),
-        utilService.getRandomColor()
+        utilService.makeLorem(10),
       )
     );
     notes.push(
       createTxtNote(
         "Just some Notes",
         utilService.makeLorem(5),
-        utilService.getRandomColor()
       )
     );
     notes.push(
       createImgNote(
         "Me and Raja",
-        "https://upload.wikimedia.org/wikipedia/commons/6/66/Velociraptor_%28IMG_Worlds_of_Adventure%29_1.jpg",
-        utilService.getRandomColor()
-      )
-    );
-    notes.push(
-      createTxtNote(
-        "Getting my shit togheter",
-        utilService.makeLorem(5),
-        utilService.getRandomColor()
+        "https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.6435-9/75614078_10216099474943007_7401725090628370432_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=e3f864&_nc_ohc=6b1KlCW1PgMAX-OC476&_nc_ht=scontent.ftlv6-1.fna&oh=00_AT8lx0sGBXquj-ETULFCej9_Y6nOIVBMpeoDuR_dDAgMcw&oe=62486B6A",
       )
     );
     notes.push(
       createImgNote(
-        "Me and Raja",
-        "https://upload.wikimedia.org/wikipedia/commons/6/66/Velociraptor_%28IMG_Worlds_of_Adventure%29_1.jpg",
-        utilService.getRandomColor()
+        "Sunset at Ko Tao",
+        "https://scontent.ftlv6-1.fna.fbcdn.net/v/t39.30808-6/252394570_10221062439734025_3629711366191690434_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=Eg5vEUDmrRwAX8xKLwn&_nc_ht=scontent.ftlv6-1.fna&oh=00_AT9a_O4YwfnEPRwJmVuv9aK4bfNoIDyE9UFrKnBYcoNjWw&oe=62265EB6",
+      )
+    );
+    notes.push(
+      createVideoNote(
+        "King Pac",
+        "https://www.youtube.com/watch?v=KrhcVClS43o"
       )
     );
     notes.push(
       createTodoNote(
         "Todos for this week",
-        "I have to take Raja to a walk",
-        "white"
-      )
-    );
-    notes.push(
-      createImgNote(
-        "Me and Raja",
-        "https://upload.wikimedia.org/wikipedia/commons/6/66/Velociraptor_%28IMG_Worlds_of_Adventure%29_1.jpg",
-        utilService.getRandomColor()
-      )
-    );
-    notes.push(
-      createTodoNote(
-        "Todos for this week",
-        "I have to take Raja to a walk",
-        "white"
+        "I have to take Raja to a walk every night,Gotta pay rent,Gotta train",
       )
     );
     storageService.postMany(NOTES_KEY, notes);
@@ -100,7 +80,7 @@ function _createNotes() {
   return notes;
 }
 
-function createTxtNote(title, txt, style = "#102E4A") {
+function createTxtNote(title, txt, style = "#ffffff") {
   const note = {
     type: "note-txt",
     info: {
@@ -115,7 +95,7 @@ function createTxtNote(title, txt, style = "#102E4A") {
   return note
 }
 
-function createImgNote(title, url, style = "#102E4A") {
+function createImgNote(title, url, style = "#ffffff") {
   const note = {
     type: "note-img",
     info: {
@@ -130,7 +110,7 @@ function createImgNote(title, url, style = "#102E4A") {
   return note
 }
 
-function createTodoNote(title, txt, style = "#102E4A") {
+function createTodoNote(title, txt, style = "#ffffff") {
   let todos = txt.split(",");
   let list = todos.map((todo) => {
     return {
@@ -153,7 +133,7 @@ function createTodoNote(title, txt, style = "#102E4A") {
   return note
 }
 
-function createVideoNote(title, url, style="#102E4A") {
+function createVideoNote(title, url, style="#ffffff") {
   let getVideoId = url.split('=')
   let newUrl = `https://www.youtube.com/embed/${getVideoId[1]}`
     const note = {
