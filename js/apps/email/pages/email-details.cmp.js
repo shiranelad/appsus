@@ -3,7 +3,6 @@ import { emailService } from '../services/email.service.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 
 export default {
-    //   props: ['email'],
     template: `
         <section class="email-details flex main-layout main-content">
             <email-sidebar></email-sidebar>
@@ -26,7 +25,6 @@ export default {
         emailSidebar,
     },
     created() {
-        console.log()
     },
     data() {
         return {
@@ -34,11 +32,12 @@ export default {
         }
     },
     methods: {
-
+        
         loadEmail() {
             emailService.getEmailById(this.emailId)
-                .then(email => this.email = email);
-        }
+            .then(email => this.email = email);
+        },
+
     },
     computed: {
         emailId() {

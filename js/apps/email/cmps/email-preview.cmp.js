@@ -10,13 +10,13 @@ export default {
                     <i class="icon star" :class="starClass" @click="setStar(currEmail)"></i>
                 </td>
                 <td>
-                    <i class="icon imp" :class="impClass" @click="isImpMarked = !isImpMarked"></i>
+                    <i class="icon imp" :class="impClass" @click="setImportant(currEmail)"></i>
                 </td>
                 <td class="email-from" :class="readClass">
-                        <router-link :to="'/email/'+currEmail.id">{{currEmail.from}}</router-link>
+                        <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">{{currEmail.from}}</router-link>
                 </td>
                 <td class="email-subject">
-                    <router-link :to="'/email/'+currEmail.id">
+                    <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">
                         <span :class="readClass">{{currEmail.subject}}</span>
                         <span class="email-body-header"> - {{currEmail.body}}</span>
                     </router-link>
@@ -66,6 +66,14 @@ export default {
                 .then(email => this.currEmail.isSelected = email.isSelected)
         },
 
+        setRead(email) {
+            email.isRead = true
+            emailService.updateEmail(email)
+                .then(e => this.currEmail = e)
+            return email
+        },
+
+
         toggleRead(email) {
             this.currEmail.isRead = !this.currEmail.isRead
             emailService.updateEmail(email)
@@ -76,16 +84,22 @@ export default {
             this.isStarMarked = !this.isStarMarked
             email.isStarred = this.isStarMarked
             emailService.updateEmail(email)
-                .then(email => this.currEmail.isStarred = email.isStarred)
+                .then(e => this.currEmail.isStarred = e.isStarred)
+        },
+        setImportant(email) {
+            this.isImpMarked = !this.isImpMarked
+            email.isImportant = this.isImpMarked
+            emailService.updateEmail(email)
+                .then(e => this.currEmail.isImportant = e.isImportant)
         }
 
     },
     computed: {
         starClass() {
-            return { starred: this.isStarMarked, star: !this.isStarMarked }
+            return { starred: this.currEmail.isStarred, star: !this.currEmail.isStarred }
         },
         impClass() {
-            return { 'imp-marked': this.isImpMarked, 'imp': !this.isImpMarked }
+            return { 'imp-marked': this.currEmail.isImportant, 'imp': !this.currEmail.isImportant }
         },
         checkboxClass() {
             return { 'email-checkbox-checked': this.isChecked, 'email-checkbox': !this.isChecked }

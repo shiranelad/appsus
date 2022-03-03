@@ -39,3 +39,31 @@ button {
 .checked {
     color: orange;
 }  
+
+/* added from email-preview */
+
+td {
+    padding-right: 30px;
+    height: 20px;
+    font-family: 'Roboto';
+    cursor: pointer;
+    font-size:0.8em;
+    /* border: 1px solid black; */
+}
+
+tr {
+    height: 20px;
+}
+
+li {
+    padding: 10px 0;
+}
+
+li:hover{
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    z-index: 2;
+}
+
+li:not(:last-child){
+    border-bottom: var(--clr10) 1px solid;
+}
