@@ -1,3 +1,5 @@
+import { emailService } from "../services/email.service.js"
+
 export default {
   // props: [""],
   template: `
@@ -8,6 +10,7 @@ export default {
               <router-link :to="'/email'" @click="setFilterBy('inbox')" class="flex align-center">
                 <i class="inbox-sb-icon icon"></i>
                 <span class="sb-text">Inbox</span>
+                <span class="mail-count">{{calcUnread}}</span>
               </router-link>
             </li>
             <li class="flex align-center" :class="liClass(2)" @click="setSelectedClass(2)">
@@ -42,7 +45,8 @@ export default {
   },
   data() {
     return {
-      selectedLi: 0
+      selectedLi: 0,
+      unreadCount: '',
     }
   },
   methods: {
@@ -55,10 +59,25 @@ export default {
     },
     liClass(val) {
       return { 'selected-li' : this.selectedLi === val }
-    }
+    },
+
 
   },
   computed: {
+    calcUnread(){
+      var em = []
+      em = emailService.query()
+      .then(emails => { 
+        // console.log(emails)
+        return emails.filter(email => !email.isRead)
+      })
+      console.log(em)
+      // return em
+      // console.log(em.length)
+      // return `(${emails})`
+    }
+
+
   },
   unmounted() { },
 }
