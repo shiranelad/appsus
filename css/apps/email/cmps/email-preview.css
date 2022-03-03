@@ -54,11 +54,14 @@ li:not(:last-child){
     margin-left:100px;
     padding:0;
     border: 1px solid black;
+    max-width:90vw;
+    min-width:70vw;
 
 }
 
 .email-from {
     min-width:300px;
+    text-overflow: ellipsis ;
 }
 
 .star {
@@ -116,12 +119,15 @@ table:hover > tr > .email-time {
     width:30%;
     text-align: start;
     width:65%;
+    text-overflow: ellipsis ellipsis;
+    white-space: nowrap;
 }
 
 .email-body{
     color: var(--clr9);
     text-align: start;
     width: 30%; 
+    text-overflow: ellipsis ;
 }
 
 .email-time {
@@ -160,4 +166,8 @@ table:hover > tr > .email-time {
 
 .unread-status {
     font-weight: bold;
+}
+
+.no-mails{
+    padding: 0 10px;
 }

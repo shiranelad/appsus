@@ -7,7 +7,7 @@ export default {
     template: `
         <section class="emails-table">
             <ul class="email-list">
-                
+                <div v-if="checkEmails" class="no-mails" >No Emails to display</div>
                 <li v-for="email in emails" :key="email.id" :class="displaySelected(email)">
                     <table class="main-layout">
                     <email-preview :currEmail="email" @remove="removeEmail" @selected="getSelected(email)" @unselected="getUnSelected(email)"/>
@@ -37,6 +37,10 @@ export default {
                     const idx = this.emails.findIndex(email => email.id === id)
                     this.emails.splice(idx, 1)
                 }) 
+                console.log()
+            console.log(this.noEmails)
+            console.log(this.emails)
+            console.log(this.emails.length)
         },
 
         getSelected(email){
@@ -61,7 +65,7 @@ export default {
 
                     return { 'email-item' : !this.selectedEmail === email , 'email-selected' : this.selectedEmail === email}
                 },
-    
+            
 
     },
     computed: {
@@ -72,7 +76,12 @@ export default {
     //         // else {
     //             return { 'email-item' : !this.selectedEmail , 'email-selected' : !!this.selectedEmail}
     //         },
+
+    checkEmails(){
+        return (Array.isArray(this.emails) &&  this.emails.length > 0) ? false : true
+
     },
+},
     unmounted(){
 
     }

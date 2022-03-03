@@ -2,8 +2,8 @@ export default {
   // props: [""],
   template: `
          <section class="side-bar">
-            <button class="compose">+Compose</button>
-            <ul>
+            <button class="compose">Compose</button>
+            <ul class="nav-list">
                 <li><a class="inbox">Inbox</a></li>
                 <li><a class="starred-emails">Starred</a></li>
                 <li><a class="important">Important</a></li>
