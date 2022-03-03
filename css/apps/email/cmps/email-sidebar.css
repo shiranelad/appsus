@@ -31,12 +31,13 @@
     width:200px;
 }
 
-.nav-list>li:hover, .nav-list>li>a:focus {
+.nav-list>li:hover {
     box-shadow: inset 0px -20px 20px 20px var(--clr11);
     cursor: pointer;
-    background-color: var(--var8);
-    /* border-bottom: 2px var(--clr1) solid; */
-    
+}
+
+.selected-li {
+    box-shadow: inset 0px -20px 20px 20px var(--clr11);
 }
 
 .nav-list > li > a {
