@@ -5,6 +5,7 @@
   break-inside: avoid;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  position: relative;
 }
 
 .note-card ul {
@@ -84,4 +85,10 @@
 .marked-note {
     -webkit-box-shadow: 0px 3px 11px 1px #FFFB00; 
     box-shadow: 0px 3px 11px 1px #FFFB00;
+}
+
+.pinned-note {
+  position: absolute;
+  right: 0;
+  transform: rotate(45deg);
 }

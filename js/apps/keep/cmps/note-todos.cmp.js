@@ -5,6 +5,7 @@ export default {
   props: ["info", "cmpData"],
   template: `
         <section v-if="info.todos.length" :class="markNote" :style="info.style" class="note-card">
+            <i v-if="cmpData.isPinned" title="Pin note" class="fas fa-thumbtack note-icons pinned-note"></i>     
             <h3>{{info.title}}</h3>
             <ul>
                 <li v-for="(todo, idx) in info.todos" :style="todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': 'none'}" @click="toggleDone(idx)">
@@ -12,7 +13,7 @@ export default {
                     <i @click="removeTodo(idx)" class="fa-solid fa-x delete-todo-icon"></i>
                   </li>
             </ul>
-            <note-actions @delete="deleteNote" @setColor="setColor" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type"></note-actions>
+            <note-actions @delete="deleteNote" @setColor="setColor" @setDarkColor="setDarkColor" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type" :fontColor="cmpData.style.color"></note-actions>
         </section>
     `,
   components: {
@@ -43,6 +44,12 @@ export default {
       noteService.save(this.noteData)
     },
     setColor(color) {
+      this.noteData.style.color = 'black'
+      this.noteData.style.backgroundColor = color
+      noteService.save(this.noteData)
+    },
+    setDarkColor(color) {
+      this.noteData.style.color = 'white'
       this.noteData.style.backgroundColor = color
       noteService.save(this.noteData)
     },

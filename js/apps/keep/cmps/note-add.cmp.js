@@ -8,13 +8,14 @@ export default {
           <div class="add-notes flex justify-center align-center">
             <div class="add-note-container flex space-between align-center">
               <div class="flex col long-input-container">
-                <input v-model="title" type="text" class="add-input-title add-input" placeholder="Title">
+                <input v-model="title" @keyup.enter="addNote" type="text" class="add-input-title add-input" placeholder="Title">
                 <input v-model="val" @keyup.enter="addNote" type="text" class="add-input long-input" :placeholder="holder">
+                <p>Press Enter to add note</p>
               </div>
               <div class="flex gap-5">
                 <i @click="setType('text')" class="fas fa-font fa-lg note-icons"></i>
-                <i @click="setType('img')" class="far fa-image fa-lg note-icons"></i>
                 <i @click="setType('todos')" class="fas fa-list fa-lg note-icons"></i>
+                <i @click="setType('img')" class="far fa-image fa-lg note-icons"></i>
                 <i @click="setType('video')" class="fab fa-youtube fa-lg note-icons"></i>
                 <!-- <i @click="setType('audio')" class="fas fa-volume-up fa-lg note-icons"></i> -->
               </div>
@@ -23,7 +24,9 @@ export default {
         </section>
     `,
   components: {},
-  created() {},
+  created() {
+    eventBus.on('editNote', this.editNote)
+  },
   data() {
     return {
       val: null,
@@ -33,6 +36,7 @@ export default {
   },
   methods: {
     addNote() {
+      if(!this.val) return
       if (this.noteType === "text"){
         if (!this.title.length) this.title = "New note";
         noteService.createTxtNote(this.title, this.val);
@@ -53,10 +57,13 @@ export default {
         eventBus.emit('updateByBus')
       }, 500);
     },
-
     setType(type) {
       this.noteType = type
-    }
+    },
+    // editNote(note) {
+    //   this.val = note.info.txt
+    //   console.log('note',note);
+    // }
   },
   computed: {
     holder() {

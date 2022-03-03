@@ -9,13 +9,13 @@ import noteVideo from './note-video.cmp.js'
 export default {
   // props: [""],
   template: `
-        <section class="note-cards-container main-layout">
+        <section class="note-cards-container">
           <div v-for="(cmp, idx) in notes">
             <component v-if="cmp.isPinned" :is="cmp.type"  :info="{...cmp.info}" :cmpData="{...cmp}" :style="cmp.style" @updateData="updateData"></component>
           </div>
         </section>
         <hr>
-        <section class="note-cards-container main-layout">
+        <section class="note-cards-container">
           <div v-for="(cmp, idx) in notes">
             <component v-if="!cmp.isPinned" :is="cmp.type"  :info="{...cmp.info}" :cmpData="{...cmp}" :style="cmp.style" @updateData="updateData"></component>
           </div>
@@ -37,11 +37,23 @@ export default {
       this.notes = noteList
       })
     this.unsubscribe = eventBus.on('updateByBus', this.updateData)
+    eventBus.on('filterNotes', this.notesToShow)
   },
   methods: {
     updateData() {
       noteService.query().then(noteList => this.notes = noteList)
-    }
+    },
+    notesToShow(filterBy) {
+      if (!filterBy) {
+        return noteService.query().then(noteList =>{
+          this.notes = noteList
+          })
+      }
+      const regex = new RegExp(filterBy, 'i');
+      return noteService.query().then(noteList =>{
+        return this.notes = noteList.filter(note => (regex.test(note.info.title) || regex.test(note.info.txt)));
+        })
+    },
   },
   computed: {},
   unmounted() {
