@@ -3,7 +3,6 @@ import { emailService } from '../services/email.service.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 
 export default {
-    //   props: ['email'],
     template: `
         <section class="email-details flex main-layout main-content">
             <email-sidebar></email-sidebar>

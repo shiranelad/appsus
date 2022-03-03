@@ -5,7 +5,7 @@
 }
 
 .imp {
-    background-image: url('../../../../img/important-50-empty.png');
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/label_important_black_20dp.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -13,7 +13,7 @@
 }
 
 .imp-marked {
-    background-image: url('../../../../img/important-50-filled.png');
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/label_important_googyellow500_20dp.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

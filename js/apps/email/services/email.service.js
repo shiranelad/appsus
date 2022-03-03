@@ -6,6 +6,9 @@ const EMAILS_KEY = 'emails'
 _createEmails()
 // const loggedinUser = { email: 'user@appsus.com', fullname: 'Mahatma Appsus' }
 
+const loggedinUser = { email: 'shiranelad@gmail.com', fullname: 'Shiran Elad' }
+
+
 function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
@@ -23,6 +26,10 @@ function _createEmails() {
 
 function query() {
     return storageService.query(EMAILS_KEY)
+}
+
+function getLoggedInUser(){
+    return loggedinUser
 }
 
 function remove(emailId) {
@@ -60,5 +67,6 @@ export const emailService = {
     remove,
     getEmailById,
     save,
-    updateEmail
+    updateEmail,
+    getLoggedInUser
 }
