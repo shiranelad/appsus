@@ -5,7 +5,8 @@ export const utilService = {
     getCurrencySymbol,
     getRandomInt,
     makeLorem,
-    getRandomColor
+    getRandomColor,
+    dispDateTime
 }
 
 function saveToStorage(key, value) {
@@ -54,4 +55,30 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+}
+
+function dispDateTime(getDate, withTime) {
+    let dt = new Date(getDate)
+    var hours = dt.getHours()
+    var minutes = dt.getMinutes()
+    var ampm = (hours < 12 ? 'AM' : 'PM')
+    if (ampm === 'PM' && hours > 12) {
+        hours = hours - 12
+    }
+    if (minutes < 10) minutes = '0' + minutes
+
+    var monthName = dt.toLocaleString('default', { month: 'short' })
+
+    let todayDisp = hours + ':' + minutes + ' ' + ampm
+    let monthDisp = monthName + ' ' + dt.getDate()
+    let yearDisp = dt.getDate() + '/' + (dt.getMonth() + 1) + '/' + dt.getFullYear()
+
+    var today = new Date()
+
+    if (dt.getDate() === today.getDate() && dt.getMonth() === today.getMonth() && dt.getFullYear() === today.getFullYear()) {
+        return todayDisp 
+    }
+    else if (dt.getMonth() === today.getMonth() && dt.getFullYear() === today.getFullYear())
+        return monthDisp + (withTime ? ', ' + todayDisp : '')
+    else return yearDisp + (withTime ? ', ' + todayDisp : '')
 }

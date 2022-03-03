@@ -1,0 +1,41 @@
+.subject {
+    color:black;
+    
+}
+
+.display-email {
+    width: 100%;
+    max-width:90vw;
+    min-width:70vw;
+
+}
+
+.user-icon {
+    background-image: url('../../../../img/user.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-size:50px;
+    width: 100px;
+    height:100px;
+    display:inline-block;
+    
+}
+
+.to{
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+.display-email{
+    height:50vh;
+    padding-right: 20px; 
+}
+
+.email-body{
+    margin-left: 28px;
+}
+
+.email-date{
+    font-size: 0.8em;
+}

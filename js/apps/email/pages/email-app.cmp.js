@@ -3,7 +3,7 @@ import { emailService } from '../services/email.service.js'
 // import emailFilter from '../cmps/email-filter.cmp.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
-// import emailDetails from '../views/book-email.cmp.js'
+import emailDetails from '../pages/email-details.cmp.js'
 // import emailSearch from '../cmps/email-search.cmp.js'
 import { showSuccessMsg , showErrorMsg} from '../../../services/eventBus-service.js'
 
@@ -16,7 +16,7 @@ export default {
           
            <email-sidebar></email-sidebar>
             <email-list :emails="emails"  @selected="selectEmail"></email-list>
-            <!-- <email-details :book="selectedEmail" v-if="selectedEmail"></email-details> -->
+            <email-details :email="selectedEmail" v-if="selectedEmail"></email-details>
         </section>
 
     `,
@@ -25,6 +25,7 @@ export default {
     // emailPreview,
     emailSidebar,
     emailList,
+    emailDetails,
     showSuccessMsg,
     showErrorMsg
   },
@@ -38,11 +39,14 @@ export default {
   data() {
     return {
       emails: null,
+      selectedEmail: null,
 
     }
   },
   methods: {
-   
+    selectEmail(email) {
+      this.selectedEmail = email;
+  },
   },
   computed: {},
   unmounted() {},

@@ -53,7 +53,7 @@ li:not(:last-child){
     margin-top:30px;
     margin-left:100px;
     padding:0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     max-width:90vw;
     min-width:70vw;
 
@@ -123,7 +123,7 @@ table:hover > tr > .email-time {
     white-space: nowrap;
 }
 
-.email-body{
+.email-body-header{
     color: var(--clr9);
     text-align: start;
     width: 30%; 
@@ -170,4 +170,10 @@ table:hover > tr > .email-time {
 
 .no-mails{
     padding: 0 10px;
+}
+
+a{
+    text-decoration: none; /* no underline */
+    visited: unset;
+    color:inherit;
 }
