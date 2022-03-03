@@ -1,0 +1,35 @@
+.side-bar {
+    width: 100px;
+    height: 400px;
+    /* position: fixed; */
+    /* margin: 10px; */
+}
+
+.compose {
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    margin-top: 20px;
+    /* margin-left:20px; */
+    letter-spacing: 4px;
+    padding:0;
+    font-family: 'Roboto';
+
+}
+
+.compose:hover{
+    background-color: var(--clr8);
+    color: var(--clr1);
+    box-shadow: 5px 5px 15px -5px #000000;
+}
+
+.nav-list {
+    padding:0;
+    margin:10px;
+}
+
+.nav-list>li:hover{
+    box-shadow: unset;
+    cursor: pointer;
+    background-color: var(--var8);
+}
