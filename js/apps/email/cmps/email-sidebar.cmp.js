@@ -4,7 +4,7 @@ export default {
          <section class="side-bar">
             <button class="compose">Compose</button>
             <ul class="nav-list">
-                <li><router-link :to="'/email'" class="inbox">Inbox</router-link></li>
+            <li class="inbox"><router-link :to="'/email'">Inbox</router-link></li>
                 <li><a class="starred-emails">Starred</a></li>
                 <li><a class="important">Important</a></li>
                 <li><a class="sent">Sent</a></li>

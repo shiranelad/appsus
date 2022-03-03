@@ -33,3 +33,9 @@
     cursor: pointer;
     background-color: var(--var8);
 }
+
+.nav-list > li > a {
+    text-decoration: none; /* no underline */
+    color:inherit;
+    padding-right: 50px;
+}
