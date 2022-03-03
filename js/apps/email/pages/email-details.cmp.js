@@ -26,7 +26,6 @@ export default {
         emailSidebar,
     },
     created() {
-        console.log()
     },
     data() {
         return {
@@ -34,11 +33,12 @@ export default {
         }
     },
     methods: {
-
+        
         loadEmail() {
             emailService.getEmailById(this.emailId)
-                .then(email => this.email = email);
-        }
+            .then(email => this.email = email);
+        },
+
     },
     computed: {
         emailId() {

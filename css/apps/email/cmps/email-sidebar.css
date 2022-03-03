@@ -32,10 +32,12 @@
     box-shadow: unset;
     cursor: pointer;
     background-color: var(--var8);
+    border-bottom: 5px var(--clr1) solid;
 }
 
 .nav-list > li > a {
     text-decoration: none; /* no underline */
     color:inherit;
-    padding-right: 50px;
+    padding-right: 30px;
+    padding: 10px 50px 10px 0;
 }

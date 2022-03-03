@@ -10,11 +10,11 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
          emails = [
-            {id: "e101", subject: "Miss you!", body: "Would love to catch up sometimes", isRead: false, sentAt: 1551133930594, from:"shiranelad@gmail.com", to: "momo@momo.com", labels: ['Friends', 'todo'], isSelected: false,},
-            {id: "e102", subject: "Sale in Superpharm!", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"superpharm@superpharm.co.il", to: "shiranelad@gmail.com", labels: ['Promotions'], isSelected: false,},
-            {id: "e103", subject: "Your email is out of storage!", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"admin@google.com", to: "shiranelad@gmail.com", labels: ['Notifications'], isSelected: false,},
-            {id: "e104", subject: "Your bill from the electric company", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"iec@iec.co.il", to: "shiranelad@gmail.com", labels: ['bills'], isSelected: false,},
-            {id: "e105", subject: "New friend request", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"facebook@facebook.com", to: "shiranelad@gmail.com", isSelected: false,},
+            {id: "e101", subject: "Miss you!", body: "Would love to catch up sometimes", isRead: false, sentAt: 1551133930594, from:"shiranelad@gmail.com", to: "momo@momo.com", labels: ['Friends', 'todo'], isSelected: false, isStarred: false, isImportant: false},
+            {id: "e102", subject: "Sale in Superpharm!", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"superpharm@superpharm.co.il", to: "shiranelad@gmail.com", labels: ['Promotions'], isSelected: false, isStarred: false, isImportant: false},
+            {id: "e103", subject: "Your email is out of storage!", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"admin@google.com", to: "shiranelad@gmail.com", labels: ['Notifications'], isSelected: false, isStarred: false, isImportant: false},
+            {id: "e104", subject: "Your bill from the electric company", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"iec@iec.co.il", to: "shiranelad@gmail.com", labels: ['bills'], isSelected: false, isStarred: false, isImportant: false},
+            {id: "e105", subject: "New friend request", body: "Come see our new products", isRead: false, sentAt: 1646226959454, from:"facebook@facebook.com", to: "shiranelad@gmail.com", isSelected: false, isStarred: false, isImportant: false},
         ]
     }
     utilService.saveToStorage(EMAILS_KEY, emails)
