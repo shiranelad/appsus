@@ -14,6 +14,7 @@
 @import 'apps/keep/notes-list.css';
 @import 'apps/keep/notes-add.css';
 @import 'apps/keep/notes-cards.css';
+@import 'apps/keep/media-queries.css';
 
 /* EMAIL */
 @import 'apps/email/basic/base.css';

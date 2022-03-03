@@ -5,9 +5,10 @@ export default {
   props: ["info", "cmpData"],
   template: `
         <section class="note-card" :style="info.style" :class="markNote">
+          <i v-if="cmpData.isPinned" title="Pin note" class="fas fa-thumbtack note-icons pinned-note"></i>     
           <h5>{{info.title}}</h5>
             <img :src="info.url" :title="info.title">
-            <note-actions @delete="deleteNote" @setColor="setColor" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type"></note-actions>
+            <note-actions @delete="deleteNote" @setColor="setColor" @setDarkColor="setDarkColor" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type" :fontColor="cmpData.style.color"></note-actions>
         </section>
     `,
   components: {
@@ -28,6 +29,12 @@ export default {
       })
     },
     setColor(color) {
+      this.noteData.style.color = 'black'
+      this.noteData.style.backgroundColor = color
+      noteService.save(this.noteData)
+    },
+    setDarkColor(color) {
+      this.noteData.style.color = 'white'
       this.noteData.style.backgroundColor = color
       noteService.save(this.noteData)
     },
