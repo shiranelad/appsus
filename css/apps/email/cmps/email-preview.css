@@ -51,8 +51,10 @@ li:not(:last-child){
     background-color: var(--clr8);
     height:100%;
     margin-top:30px;
-    margin-left:200px;
+    margin-left:100px;
     padding:0;
+    border: 1px solid black;
+
 }
 
 .email-from {
