@@ -6,6 +6,8 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   position: relative;
+  -webkit-box-shadow: 0px 9px 19px -4px rgba(0,0,0,0.37); 
+  box-shadow: 0px 9px 19px -4px rgba(0,0,0,0.37); 
 }
 
 .note-card ul {
@@ -13,6 +15,30 @@
   border-radius: 0.5rem;
   padding: 0 1.2em;
   transition: background-color 0.3s;
+}
+
+.note-modal {
+  position: absolute;
+  z-index: 100;
+  width: 50vh;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+}
+
+.note-modal iframe {
+  height: 350px;
+  width: inherit;
+  transform: translateX(-1rem);
+}
+
+.screen-for-modal{
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  position: absolute;
+  cursor: pointer;
 }
 
 .note-card li {
@@ -72,7 +98,7 @@
 
 .delete-todo-icon {
   position: absolute;
-  bottom: .5rem;
+  bottom: 0.5rem;
   right: -1rem;
   cursor: pointer;
 }
@@ -83,12 +109,41 @@
 }
 
 .marked-note {
-    -webkit-box-shadow: 0px 3px 11px 1px #FFFB00; 
-    box-shadow: 0px 3px 11px 1px #FFFB00;
+  -webkit-box-shadow: 0px 16px 27px -12px #8CFF00; 
+box-shadow: 0px 16px 27px -12px #8CFF00;
 }
 
 .pinned-note {
   position: absolute;
-  right: 0;
-  transform: rotate(45deg);
+  right: -1px;
+  top: 4px;
+  transform: rotate(19deg);
+  color: rgb(131, 14, 14);
+}
+.card-url-input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  margin: 0.3rem 0;
+}
+.card-url-input:focus-visible {
+  outline: none;
+}
+
+.on-edit-note::after {
+  content: "|";
+  animation-name: blink;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -1,63 +1,68 @@
 .add-notes {
-    margin: 1rem auto;
+  margin: 1rem auto;
 }
 
 .add-input {
-    height: 2em;
-    border: 0;
+  height: 2em;
+  border: 0;
 }
 .add-input:focus-visible {
-    outline: none;
+  outline: none;
 }
 .long-input {
-    width: 100%;
+  width: 100%;
 }
 .long-input-container {
-    width: 60%;
+  width: 60%;
 }
 
 .add-note-container {
-    background-color: white;
-    padding: 1rem;
-    height: 100px;
-    width: 500px;
-    border-radius: .5rem;
-    position: relative;
+  background-color: white;
+  padding: 1rem;
+  height: 100px;
+  width: 500px;
+  border-radius: 0.5rem;
+  position: relative;
+  -webkit-box-shadow: 0px 4px 19px -4px #000000;
+  box-shadow: 0px 4px 19px -4px #000000;
 }
 .long-input-container > p {
-    margin-block-end: 0;
-    margin-block-start: 0;
-    font-size: .7rem;
-    color: rgb(126 125 125);
-    position: absolute;
-    bottom: 0.5rem;
-    left: 0.5rem;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  font-size: 0.7rem;
+  color: rgb(126 125 125);
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
 }
 
 .add-input-title {
-    position: absolute;
-    top: 0;
-    border-bottom: 1px solid rgba(48, 48, 48, 0.301);
+  position: absolute;
+  top: 0;
+  border-bottom: 1px solid rgba(48, 48, 48, 0.301);
 }
 
 .note-icons {
-    color: rgba(0, 0, 0, 0.459);
-    transition: color .2s;
+  color: rgba(0, 0, 0, 0.459);
+  transition: color 0.2s;
 }
 
 .note-icons:hover {
-    cursor: pointer;
-    color: black;
+  cursor: pointer;
+  color: black;
 }
 
 .search-notes {
-    margin-block-start: 1rem;
+  max-width: 500px;
+  margin: 1rem auto;
 }
 .search-notes input {
-    width: 30%;
-    border: 0;
+  width: 80%;
+  border: 0;
+  background-color: #f1f3f4;
 }
 
 .search-notes input:focus-visible {
-    outline: none;
+  outline: none;
+  background-color: white;
 }

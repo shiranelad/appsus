@@ -24,15 +24,10 @@
     }
 }
 
-/* 
-#e3e3e3
-#f88
-#865687
-#4a4150 // white
-#747474 // white
-#010630 // white
-#440101 // white
-#4a4a4a // white
-#222222 // white
-#000 // white
-*/
+@media (max-width: 460px) {
+    .add-note-container {
+        flex-direction: column;
+        height: 150px;
+        justify-content: space-evenly;
+    }
+}

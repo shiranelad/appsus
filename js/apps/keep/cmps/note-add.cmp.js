@@ -60,10 +60,6 @@ export default {
     setType(type) {
       this.noteType = type
     },
-    // editNote(note) {
-    //   this.val = note.info.txt
-    //   console.log('note',note);
-    // }
   },
   computed: {
     holder() {
