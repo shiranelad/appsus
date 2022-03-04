@@ -46,6 +46,7 @@ export default {
   data() {
     return {
       selectedLi: 0,
+      emails: [],
       unreadCount: '',
     }
   },
@@ -65,16 +66,13 @@ export default {
   },
   computed: {
     calcUnread(){
-      var em = []
-      em = emailService.query()
+    return emailService.query()
       .then(emails => { 
-        // console.log(emails)
-        return emails.filter(email => !email.isRead)
-      })
-      console.log(em)
+  this.emails = (emails.filter(email => !email.isRead && email.to === emailService.getLoggedInUser().email))
+      }).then (() => Promise.resolve(this.emails))
       // return em
       // console.log(em.length)
-      // return `(${emails})`
+      // return `(${this.emails.length})`
     }
 
 
