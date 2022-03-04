@@ -6,8 +6,43 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   position: relative;
-  -webkit-box-shadow: 0px 9px 19px -4px rgba(0,0,0,0.37); 
-  box-shadow: 0px 9px 19px -4px rgba(0,0,0,0.37); 
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+.cmp-note-container {
+  -webkit-box-shadow: 0px 9px 19px -4px rgba(0, 0, 0, 0.37);
+  box-shadow: 0px 9px 19px -4px rgba(0, 0, 0, 0.37);
+  border-radius: 0.5rem;
+}
+
+.dropdown-content {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 360px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+  text-align: center;
+}
+.dropdown-content span {
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-right: 1px;
+}
+
+.dropdown-content .bg-img-note {
+  height: 33px;
+  width: 33px;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: cover;
+  margin: 0 1px 2px;
 }
 
 .note-card ul {
@@ -33,7 +68,7 @@
   transform: translateX(-1rem);
 }
 
-.screen-for-modal{
+.screen-for-modal {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 50;
@@ -62,29 +97,29 @@
   margin-block-end: 0.5rem;
 }
 
-.dropdown-content span {
-  display: inline-block;
-  height: 22px;
-  width: 22px;
-  border-radius: 50%;
-  border: 1px solid white;
-  cursor: pointer;
-  margin-right: 1px;
-}
 .note-item-actions i {
   cursor: pointer;
 }
-.dropdown-content {
-  position: absolute;
-  transform: translateX(-44%);
-  width: 240px;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.2s;
-}
+
 .dropdown:hover > .dropdown-content {
   opacity: 1;
   visibility: visible;
+  z-index: 80;
+}
+.onclick-dropdown-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 80;
+}
+.dropdown .dropdown-content .droplet i {
+  transform: translateY(4px);
+}
+.dropdown .dropdown-content .set-no-background {
+    background-position-y: center;
+    background-position-x: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+  background-image: url('https://fonts.gstatic.com/s/i/googlematerialicons/image_not_supported/v12/gm_grey-24dp/1x/gm_image_not_supported_gm_grey_24dp.png');
 }
 .note-item-actions {
   visibility: hidden;
@@ -109,8 +144,8 @@
 }
 
 .marked-note {
-  -webkit-box-shadow: 0px 16px 27px -12px #8CFF00; 
-box-shadow: 0px 16px 27px -12px #8CFF00;
+  -webkit-box-shadow: inset 0px -6px 14px 0px #8cff00; 
+  box-shadow: inset 0px -6px 14px 0px #8cff00;
 }
 
 .pinned-note {

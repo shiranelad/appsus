@@ -20,6 +20,7 @@ export default {
   },
   created() {
     this.unsubscribe = eventBus.on('openNote', this.openScreen)
+    eventBus.on('closeScreen', this.closeScreen)
   },
   data() {
     return {

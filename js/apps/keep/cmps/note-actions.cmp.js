@@ -2,25 +2,37 @@
 export default {
   props: ["noteType", "fontColor"],
   template: `
-        <aside class="note-item-actions flex space-between" >
+        <aside class="note-item-actions flex space-between" :class="onDropdownClick" >
                 <i v-if="noteType === 'note-img'" title="Image note" class="far fa-image visible"></i>
                 <i v-if="noteType === 'note-video'" title="Text note" class="fab fa-youtube visible "></i>
                 <i v-if="noteType === 'note-txt'" title="Text note" class="fas fa-font visible"></i>
                 <i v-if="noteType === 'note-todos'" title="Text note" class="fas fa-list visible"></i>
                 <i @click="emitPin" title="Pin note" class="fas fa-thumbtack" :class="darkModeColor"></i> 
                 <i @click="emitMark" title="Mark note" class="fas fa-check marked " :class="darkModeColor"></i> 
-                <i title="Change note color" class="fas fa-palette info colors dropdown " :class="darkModeColor">
-                    <div class="dropdown-content">
-                        <span @click="emitColor('rgb(255, 255, 255)', 'black')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
-                        <span @click="emitColor('#e3e3e3', 'black')" style="background-color: #e3e3e3;"> &nbsp; </span>
-                        <span @click="emitColor('#f88', 'black')" style="background-color: #f88;"> &nbsp; </span>
-                        <span @click="emitColor('#865687', 'black')" style="background-color: #865687;"> &nbsp; </span>
-                        <span @click="emitColor('#4a4150')" style="background-color: #4a4150;"> &nbsp; </span>
-                        <span @click="emitColor('#4a4a4a')" style="background-color: #4a4a4a;"> &nbsp; </span>
-                        <span @click="emitColor('#222222')" style="background-color: #222222;"> &nbsp; </span>
-                        <span @click="emitColor('#010630')" style="background-color: #010630;"> &nbsp; </span>
-                        <span @click="emitColor('#440101')" style="background-color: #440101;"> &nbsp; </span>
-                        <span @click="emitColor('#000')" style="background-color: #000;"> &nbsp; </span>
+                <i title="Change note color" @click.stop="openDropdown" class="fas fa-palette info colors dropdown " :class="darkModeColor">
+                    <div class="dropdown-content" :class="onDropdownClick">
+                        <span @click="emitColor('#e8eaed')" style="background-color: #e8eaed;"> &nbsp; </span>
+                        <span @click="emitColor('#e6c9a8')" style="background-color: #e6c9a8;"> &nbsp; </span>
+                        <span @click="emitColor('#fdcfe8')" style="background-color: #fdcfe8;"> &nbsp; </span>
+                        <span @click="emitColor('#d7aefb')" style="background-color: #d7aefb;"> &nbsp; </span>
+                        <span @click="emitColor('#aecbfa')" style="background-color: #aecbfa;"> &nbsp; </span>
+                        <span @click="emitColor('#cbf0f8')" style="background-color: #cbf0f8;"> &nbsp; </span>
+                        <span @click="emitColor('#a7ffeb')" style="background-color: #a7ffeb;"> &nbsp; </span>
+                        <span @click="emitColor('#ccff90')" style="background-color: #ccff90;"> &nbsp; </span>
+                        <span @click="emitColor('#fff475')" style="background-color: #fff475;"> &nbsp; </span>
+                        <span @click="emitColor('#fbbc04')" style="background-color: #fbbc04;"> &nbsp; </span>
+                        <span @click="emitColor('#f28b82')" style="background-color: #f28b82;"> &nbsp; </span>
+                        <span @click="emitColor('#fff')" class="droplet" style="background-color: #fff;"> <i class="fa-solid fa-droplet-slash"></i> </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/celebration_light_0714_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/celebration_light_0714_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/video_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/video_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/travel_light_0614_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/travel_light_0614_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/places_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/places_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/notes_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/notes_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/recipe_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/recipe_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/music_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/music_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/food_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/food_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitImage('https://www.gstatic.com/keep/backgrounds/grocery_light_0609_rtl.svg')" class="bg-img-note" style="background-image: url('https://www.gstatic.com/keep/backgrounds/grocery_light_0609_rtl.svg')"> &nbsp; </span>
+                        <span @click="emitColor('#fff')" class="bg-img-note set-no-background" style="background-color: #fff"> &nbsp; </span>
                     </div>
                 </i> 
                 <i @click="emitEdit" title="Edit note" class="fas fa-edit " :class="darkModeColor"></i> 
@@ -33,7 +45,7 @@ export default {
   },
   data() {
     return {
-      darkMode: false
+      isDropdownOpen: false
     }
   },
   methods: {
@@ -41,13 +53,10 @@ export default {
       this.$emit('delete')
     },
     emitColor(color, fontColor) {
-      if (fontColor === 'black'){
-        this.darkMode = false
         this.$emit('setColor', color)
-      } else {
-        this.darkMode = true
-        this.$emit('setDarkColor', color)
-      } 
+    },
+    emitImage(url) {
+      this.$emit('setBgImage', url)
     },
     emitPin(){
       this.$emit('setPin')
@@ -60,12 +69,23 @@ export default {
     },
     emitEdit() {
       this.$emit('edit')
+    },
+    openDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen
+      document.body.addEventListener('click', this.closeDropdown, true)
+    },
+    closeDropdown() {
+      this.isDropdownOpen = false
+      document.body.removeEventListener('click')
     }
   },
   computed: {
     darkModeColor() {
       if(this.darkMode === true || this.fontColor === 'white') return 'notes-dark-mode'
       else return 'note-icons'
+    },
+    onDropdownClick(){
+      return (this.isDropdownOpen) ? 'onclick-dropdown-content' : ''
     }
   },
   unmounted() {},
