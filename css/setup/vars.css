@@ -12,4 +12,6 @@
     --clr11: rgba(255,255,255,0.3); /* google hover */
     --clr12: #202124 ;/* compose  */
     --clr13: #404040;/* compose header */
+    --clr14: #fafafb; /* compose button bg */
+    --clr15: #3c4043; /* compose button color*/
 }

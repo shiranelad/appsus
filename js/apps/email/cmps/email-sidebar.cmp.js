@@ -5,7 +5,8 @@ export default {
   // props: ['emailUnread'],
   template: `
          <section class="side-bar">
-            <button class="compose">Compose</button>
+            <div class="compose-placeholder compose" role="button" @click="composeMail">Compose</div>
+            <email-compose v-if="isCompose"></email-compose>
             <ul class="nav-list">
             <li class="inbox flex align-center" :class="liClass(1)" @click="setSelectedClass(1)">
               <router-link :to="'/email'" @click="setFilterBy('inbox')" class="flex align-center">
@@ -49,7 +50,8 @@ export default {
   data() {
     return {
       selectedLi: 0,
-      emailNum: ''
+      emailNum: '',
+      isCompose: false
       
     }
   },
@@ -70,11 +72,14 @@ export default {
       if(e.emailNum === 0) this.emailNum = ''
       else this.emailNum = `(${e.emailNum})`
       console.log(this.emailNum)
-  }
-
-
   },
-  computed: {
+
+  
+},
+computed: {
+    composeMail(){
+      this.isCompose = !this.isCompose
+    }
 
   },
   unmounted() {

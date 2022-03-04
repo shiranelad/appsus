@@ -5,16 +5,47 @@
     /* margin: 10px; */
 }
 
-.compose {
-    height: 50px;
-    width: 120px;
-    text-align: center;
-    margin-top: 20px;
-    /* margin-left:20px; */
-    letter-spacing: 4px;
-    padding:0;
-    font-family: 'Roboto';
+.compose-placeholder{
+    align-items: center;
+    /* display: flex; */
+    font-size: medium;
+    height: 48px;
+    margin: 16px 0 16px;
+    padding: 0 0 0 8px;
+    background-color: var(--clr14);
+    
+}
 
+.compose {
+    align-items: center;
+    font-size: medium;
+    height: 48px;
+    margin: 16px 0 16px;
+    font-size: .875rem;
+    letter-spacing: .25px;
+    color: var(--clr15);
+    display: inline-flex;
+    height: 48px;
+    min-width: 56px;
+    overflow: hidden;
+    padding: 0 24px 0 0;
+    text-transform: none;
+    border-radius: 24px;
+    line-height: 32px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Google Sans-Medium',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+.compose::before{
+    background-image: url('https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    content: '';
+    display:block;
+    height:48px;
+    min-width:56px
 }
 
 .compose:hover{
