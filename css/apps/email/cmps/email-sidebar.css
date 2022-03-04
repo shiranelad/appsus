@@ -48,7 +48,7 @@
 }
 
 .compose:hover{
-    background-color: var(--clr8);
+    /* background-color: var(--clr8); */
     color: var(--clr1);
     box-shadow: 5px 5px 15px -5px #000000;
     cursor: pointer;
@@ -91,48 +91,35 @@
     /* width: 90px; */
 }
 
-.inbox-sb-icon{
-    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/inbox_black_20dp.png');
+.sb-icon{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20px;
     margin-right: 10px;
     opacity: 1;
 }
+
+.inbox-sb-icon{
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/inbox_black_20dp.png');
+    
+}
 .important-sb-icon{
     background-image: url('https://www.gstatic.com/images/icons/material/system/1x/label_important_black_20dp.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    margin-right: 10px;
-    opacity: 1;
 }
 
 .star-sb-icon{
     background-image: url('https://www.gstatic.com/images/icons/material/system/1x/star_border_black_20dp.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    margin-right: 10px;
-    opacity: 1;    
 }
 
 .sent-sb-icon {
     background-image: url('https://www.gstatic.com/images/icons/material/system/1x/send_black_20dp.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    margin-right: 10px;
-    opacity: 1;
 }
 
 .trash-sb-icon {
     background-image: url('https://www.gstatic.com/images/icons/material/system/1x/delete_black_20dp.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    margin-right: 10px;
-    opacity: 1;
+}
+.drafts-sb-icon {
+    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/insert_drive_file_black_20dp.png');
 }
 
 .mail-count{

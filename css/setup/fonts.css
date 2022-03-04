@@ -2,6 +2,10 @@
     font-family: 'Roboto';
     src: url('../../fonts/Roboto/Roboto-Regular.ttf');
 }
+@font-face {
+    font-family: 'Roboto-500';
+    src: url('../../fonts/Roboto/Roboto-Medium.ttf');
+}
 
 @font-face {
     font-family: 'Roboto-Bold';

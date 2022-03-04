@@ -25,6 +25,7 @@ export default {
         emailPreview,
     },
     created(){
+
         this.calcUnread
         this.interval = setInterval(this.calcUnread, 500)
     },
@@ -38,7 +39,8 @@ export default {
 
         calcUnread() {
             emailService.query()
-            .then(emails => emails.filter(email => !email.isRead && email.to === emailService.getLoggedInUser().email))
+            .then(emails => emails.filter(email => !email.isRead && !email.isDraft && !email.isDeleted && 
+                email.to === emailService.getLoggedInUser().email))
             .then(num => eventBus.emit('calcUnread', ({ emailNum: num.length })))
            },
                 
@@ -47,11 +49,8 @@ export default {
                 .then(() => {
                     const idx = this.emails.findIndex(email => email.id === id)
                     this.emails.splice(idx, 1)
-                }) 
-                console.log()
-            console.log(this.noEmails)
-            console.log(this.emails)
-            console.log(this.emails.length)
+                })
+                this.calcUnread()
         },
 
         getSelected(email){
