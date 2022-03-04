@@ -1,10 +1,11 @@
 import { utilService } from '../../../services/util.service.js'
 import { emailService } from '../services/email.service.js'
+import { eventBus } from '../../../services/eventBus-service.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 
 export default {
     template: `
-        <section class="email-details flex main-layout main-content">
+        <section v-if="email" class="email-details flex main-layout main-content">
             <email-sidebar></email-sidebar>
             <section class="display-email emails-table">
                 <div class="space-between flex align-center">
@@ -28,14 +29,19 @@ export default {
     },
     data() {
         return {
-            email: null
+            email: null,
         }
     },
     methods: {
         
         loadEmail() {
             emailService.getEmailById(this.emailId)
-            .then(email => this.email = email);
+            .then(email => this.email = email)
+            .then( () => {
+                emailService.query()
+                .then(emails => emails.filter(email => !email.isRead && email.to === emailService.getLoggedInUser().email))
+                .then(num => eventBus.emit('calcUnread', ({ emailNum: num.length })))    
+            })
         },
 
     },
@@ -54,7 +60,8 @@ export default {
             handler() {
                 this.loadEmail()
             },
-            immediate: true
+            immediate: true,
+            deep: true,
         }
     },
 

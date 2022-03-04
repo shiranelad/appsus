@@ -1,7 +1,8 @@
 import { emailService } from "../services/email.service.js"
+import { eventBus } from '../../../services/eventBus-service.js'
 
 export default {
-  // props: [""],
+  // props: ['emailUnread'],
   template: `
          <section class="side-bar">
             <button class="compose">Compose</button>
@@ -10,7 +11,7 @@ export default {
               <router-link :to="'/email'" @click="setFilterBy('inbox')" class="flex align-center">
                 <i class="inbox-sb-icon icon"></i>
                 <span class="sb-text">Inbox</span>
-                <span class="mail-count">{{calcUnread}}</span>
+                <span class="mail-count">{{emailNum}}</span>
               </router-link>
             </li>
             <li class="flex align-center" :class="liClass(2)" @click="setSelectedClass(2)">
@@ -26,7 +27,7 @@ export default {
               </router-link>
             </li>
             <li class="flex align-center" :class="liClass(4)" @click="setSelectedClass(4)">
-                <router-link :to="'/email'" @click="setFilterBy('sent'); " class="sent flex align-center">
+                <router-link :to="'/email'" @click="setFilterBy('sent')" class="sent flex align-center">
                   <i class="sent-sb-icon icon"></i>
                   <span>Sent</span>
                 </router-link></li>
@@ -42,12 +43,14 @@ export default {
     `,
   components: {},
   created() {
+    this.unsubscribe = eventBus.on('calcUnread', this.showNum);
+
   },
   data() {
     return {
       selectedLi: 0,
-      emails: [],
-      unreadCount: '',
+      emailNum: ''
+      
     }
   },
   methods: {
@@ -58,24 +61,23 @@ export default {
     setSelectedClass(val){
       this.selectedLi = val
     },
+
     liClass(val) {
       return { 'selected-li' : this.selectedLi === val }
     },
 
+    showNum(e) {
+      if(e.emailNum === 0) this.emailNum = ''
+      else this.emailNum = `(${e.emailNum})`
+      console.log(this.emailNum)
+  }
+
 
   },
   computed: {
-    calcUnread(){
-    return emailService.query()
-      .then(emails => { 
-  this.emails = (emails.filter(email => !email.isRead && email.to === emailService.getLoggedInUser().email))
-      }).then (() => Promise.resolve(this.emails))
-      // return em
-      // console.log(em.length)
-      // return `(${this.emails.length})`
-    }
-
 
   },
-  unmounted() { },
+  unmounted() {
+    this.unsubscribe();
+  },
 }

@@ -42,9 +42,9 @@ function remove(emailId) {
 }
 function getEmailById(emailId) {
     return storageService.get(EMAILS_KEY, emailId)
-    .then( email => {
-            return _setNextPrevEmailId(email)
-    })
+    // .then( email => {
+    //         return _setNextPrevEmailId(email)
+    // })
 }
 
 function save(email) {

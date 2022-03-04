@@ -1,4 +1,5 @@
 import { emailService } from '../services/email.service.js'
+import { eventBus } from '../../../services/eventBus-service.js'
 import emailPreview from './email-preview.cmp.js'
 
 
@@ -24,14 +25,23 @@ export default {
         emailPreview,
     },
     created(){
-        
+        this.calcUnread
+        this.interval = setInterval(this.calcUnread, 500)
     },
     data() {
         return {
             selectedEmail: null,
+            interval: null
         }
     },
     methods: {
+
+        calcUnread() {
+            emailService.query()
+            .then(emails => emails.filter(email => !email.isRead && email.to === emailService.getLoggedInUser().email))
+            .then(num => eventBus.emit('calcUnread', ({ emailNum: num.length })))
+           },
+                
         removeEmail(id) {
             emailService.remove(id)
                 .then(() => {
@@ -84,6 +94,6 @@ export default {
     },
 },
     unmounted(){
-
+        clearInterval(this.interval)
     }
 }

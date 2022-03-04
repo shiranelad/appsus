@@ -13,7 +13,7 @@ export default {
                     <i class="icon imp" :class="impClass" @click="setImportant(currEmail)"></i>
                 </td>
                 <td class="email-from" :class="readClass">
-                        <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">{{currEmail.from}}</router-link>
+                        <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">{{displayToFrom}}</router-link>
                 </td>
                 <td class="email-subject">
                     <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">
@@ -68,6 +68,7 @@ export default {
 
         setRead(email) {
             email.isRead = true
+            // if (this.currEmail.isRead) return
             emailService.updateEmail(email)
                 .then(e => this.currEmail = e)
             return email
@@ -115,6 +116,12 @@ export default {
         dispDateTime(){
             let dt = this.currEmail.sentAt
             return utilService.dispDateTime(dt)
+        },
+
+        displayToFrom(){
+            if (this.currEmail.from === emailService.getLoggedInUser().email)
+                return this.currEmail.to
+            else return this.currEmail.from
         },
         // dispDateTime(emailDate) {
         //     // let dt = new Date(this.currEmail.sentAt)

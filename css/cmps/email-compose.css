@@ -1,0 +1,8 @@
+.compose-header{
+    background-color: var(--clr13);
+    color: var(--clr7);
+    width:608px;
+    height: auto;
+    line-height: 20px;
+    padding: 10px 0;
+}

@@ -5,9 +5,11 @@
     --clr4: #715AFF;
     --clr5: #A682FF;
     --clr6: #9bdaffe5;
-    --clr7: white;
+    --clr7: #fff;
     --clr8: rgba(242,245,245,0.8);
     --clr9: #5f6368; /* email-preview body */
     --clr10: gray; /* email-preview table border */
     --clr11: rgba(255,255,255,0.3); /* google hover */
+    --clr12: #202124 ;/* compose  */
+    --clr13: #404040;/* compose header */
 }

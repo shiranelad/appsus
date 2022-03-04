@@ -1,5 +1,4 @@
 import { emailService } from '../services/email.service.js'
-// import emailPreview from '../cmps/email-preview.cmp.js'
 // import emailFilter from '../cmps/email-filter.cmp.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
@@ -23,7 +22,6 @@ export default {
     `,
   components: {
     emailService,
-    // emailPreview,
     emailSidebar,
     emailList,
     emailDetails,
@@ -31,19 +29,17 @@ export default {
     showErrorMsg
   },
   created() {
+    // setInterval( () =>
     emailService.query()
       .then(emails => {
-        this.emails = emails
-        // console.log(emailS)
-      });
+        this.emails = emails})
+      // }), 5000)
   },
   data() {
     return {
       emails: null,
       selectedEmail: null,
-      filterBy: { isStarred: null, isImportant: null, to: emailService.getLoggedInUser().email, from: ''}
-
-
+      filterBy: { isStarred: null, isImportant: null, to: emailService.getLoggedInUser().email, from: ''},
     }
   },
   methods: {
@@ -78,16 +74,17 @@ export default {
          }
          console.log(filterBy)
 
-    }
-    
-  },
+    },
+
+      // console.log(this.inboxNum)
+
+      },
   computed: {
 
     emailsToShow() {
       if (!this.emails || !this.emails.length) return;
       if (!this.filterBy) return this.emails;
 
-      console.log(this.filterBy.isStarred);
       if(this.filterBy.isStarred){
         return this.emails.filter(email => email.isStarred === this.filterBy.isStarred)
       }
@@ -100,9 +97,12 @@ export default {
       if(this.filterBy.to){
         return this.emails.filter(email => email.to === this.filterBy.to)
       }
-       },
     },
-  unmounted() { },
+
+    },
+  unmounted() { 
+
+  },
 }
 
 
