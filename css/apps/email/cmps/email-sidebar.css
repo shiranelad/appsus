@@ -51,6 +51,7 @@
     background-color: var(--clr8);
     color: var(--clr1);
     box-shadow: 5px 5px 15px -5px #000000;
+    cursor: pointer;
 }
 
 .nav-list {

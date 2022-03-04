@@ -78,6 +78,7 @@ export default {
 },
 computed: {
     composeMail(){
+      console.log('hello')
       this.isCompose = !this.isCompose
     }
 
