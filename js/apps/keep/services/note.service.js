@@ -38,43 +38,103 @@ function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
   console.log('notes',notes);
   if (!notes || !notes.length) {
-    notes = [];
-    notes.push(
-      createTxtNote(
-        "Getting my shit togheter",
-        utilService.makeLorem(10),
-      )
-    );
-    notes.push(
-      createTxtNote(
-        "Just some Notes",
-        utilService.makeLorem(5),
-      )
-    );
-    notes.push(
-      createImgNote(
-        "Me and Raja",
-        "https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.6435-9/75614078_10216099474943007_7401725090628370432_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=e3f864&_nc_ohc=6b1KlCW1PgMAX-OC476&_nc_ht=scontent.ftlv6-1.fna&oh=00_AT8lx0sGBXquj-ETULFCej9_Y6nOIVBMpeoDuR_dDAgMcw&oe=62486B6A",
-      )
-    );
-    notes.push(
-      createImgNote(
-        "Sunset at Ko Tao",
-        "https://scontent.ftlv6-1.fna.fbcdn.net/v/t39.30808-6/252394570_10221062439734025_3629711366191690434_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=Eg5vEUDmrRwAX8xKLwn&_nc_ht=scontent.ftlv6-1.fna&oh=00_AT9a_O4YwfnEPRwJmVuv9aK4bfNoIDyE9UFrKnBYcoNjWw&oe=62265EB6",
-      )
-    );
-    notes.push(
-      createVideoNote(
-        "King Pac",
-        "https://www.youtube.com/watch?v=KrhcVClS43o"
-      )
-    );
-    notes.push(
-      createTodoNote(
-        "Todos for this week",
-        "I have to take Raja to a walk every night,Gotta pay rent,Gotta train",
-      )
-    );
+    notes = [
+      {
+        "type": "note-txt",
+        "info": {
+            "title": "Welcome to Note keeper",
+            "txt": "Remind yourself your tasks, Write down your ideas, Upload your favourite imgs \\ videos !"
+        },
+        "style": {
+            "backgroundColor": "",
+            "color": "black",
+            "backgroundImage": "url(https://www.gstatic.com/keep/backgrounds/video_light_0609_rtl.svg)"
+        },
+        "id": "hvnmToJx",
+        "isPinned": true
+      },
+      {
+        "type": "note-txt",
+        "info": {
+            "title": "Note that you can",
+            "txt": "Pin your important notes, mark them, edit, add and remove them. We also offer a mailing system so you can send your notes easily !"
+        },
+        "style": {
+            "backgroundColor": "",
+            "color": "black",
+            "backgroundImage": "url(https://www.gstatic.com/keep/backgrounds/food_light_0609_rtl.svg)"
+        },
+        "id": "yaqLXuXe"
+      },
+      {
+        "type": "note-video",
+        "info": {
+            "title": "Video note",
+            "url": "https://www.youtube.com/embed/j3kyaUU7D5I"
+        },
+        "style": {
+            "backgroundColor": "#e8eaed",
+            "color": "black",
+            "backgroundImage": ""
+        },
+        "id": "dMzOaXJ3"
+      },
+      {
+        "type": "note-todos",
+        "info": {
+            "title": "Here you can see the list note",
+            "todos": [
+                {
+                    "txt": "1st thing to do",
+                    "doneAt": null
+                },
+                {
+                    "txt": " Done",
+                    "doneAt": 1646408338563
+                },
+                {
+                    "txt": " 3rd thing to do",
+                    "doneAt": null
+                }
+            ]
+        },
+        "style": {
+            "backgroundColor": "#cbf0f8",
+            "color": "black",
+            "backgroundImage": ""
+        },
+        "id": "NhckZdxI",
+        "isPinned": false
+      },
+      {
+        "type": "note-img",
+        "info": {
+            "title": "Image note",
+            "url": "https://i.pinimg.com/originals/b8/56/2c/b8562ce4c2003c20054ba294b6524c3c.jpg"
+        },
+        "style": {
+            "backgroundColor": "",
+            "color": "black",
+            "backgroundImage": "url(https://www.gstatic.com/keep/backgrounds/celebration_light_0714_rtl.svg)"
+        },
+        "id": "gYV4051b",
+        "isMarked": false
+      },
+      {
+        "type": "note-txt",
+        "info": {
+            "title": "So please",
+            "txt": "Enjoy this app, share it to your friends and support us ! Thanks a lot :)"
+        },
+        "style": {
+            "backgroundColor": "#fbbc04",
+            "color": "black",
+            "backgroundImage": ""
+        },
+        "id": "s3l1dHwC",
+        "isMarked": true
+    }
+    ]
     storageService.postMany(NOTES_KEY, notes);
   }
   return notes;

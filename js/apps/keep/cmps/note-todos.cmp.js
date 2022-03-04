@@ -15,7 +15,7 @@ export default {
                     <i @click.stop="removeTodo(idx)" class="fa-solid fa-x delete-todo-icon"></i>
                   </li>
             </ul>
-            <note-actions @edit="setEdit" @delete="deleteNote" @setColor="setColor" @setDarkColor="setDarkColor" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type" :fontColor="cmpData.style.color"></note-actions>
+            <note-actions @edit="setEdit" @delete="deleteNote" @setColor="setColor" @setBgImage="setBgImage" @setPin="setPin" @setMark="setMark" @setClone="setClone" :noteType="cmpData.type" :fontColor="cmpData.style.color"></note-actions>
         </section>
     `,
   components: {
@@ -44,6 +44,7 @@ export default {
     deleteNote(){
       noteService.remove(this.noteData.id).then(()=> {
         this.$emit('updateData')
+        if(this.openNote) eventBus.emit('closeScreen')
       })
     },
     removeTodo(idx){
@@ -54,12 +55,15 @@ export default {
     },
     setColor(color) {
       this.noteData.style.color = 'black'
+      this.noteData.style.backgroundImage = ''
       this.noteData.style.backgroundColor = color
       noteService.save(this.noteData)
     },
-    setDarkColor(color) {
-      this.noteData.style.color = 'white'
-      this.noteData.style.backgroundColor = color
+    setBgImage(url){
+      console.log('url',url);
+      this.noteData.style.color = 'black'
+      this.noteData.style.backgroundColor = ''
+      this.noteData.style.backgroundImage = `url(${url})`
       noteService.save(this.noteData)
     },
     setPin() {
@@ -68,6 +72,7 @@ export default {
       } else this.noteData.isPinned = !this.noteData.isPinned 
       noteService.save(this.noteData).then(()=> {
         this.$emit('updateData')
+        if(this.openNote) eventBus.emit('closeScreen')
       })
     },
     setMark() {
