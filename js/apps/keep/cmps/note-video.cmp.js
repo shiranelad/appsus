@@ -43,14 +43,14 @@ export default {
       this.noteData.style.color = 'black'
       this.noteData.style.backgroundImage = ''
       this.noteData.style.backgroundColor = color
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setBgImage(url){
       console.log('url',url);
       this.noteData.style.color = 'black'
       this.noteData.style.backgroundColor = ''
       this.noteData.style.backgroundImage = `url(${url})`
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setPin() {
       if(!this.noteData.isPinned ) {
@@ -65,7 +65,7 @@ export default {
       if(!this.noteData.isMarked){
         this.noteData.isMarked = true
       } else this.noteData.isMarked = !this.noteData.isMarked
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setClone() {
       let copyNote = {...this.noteData}
@@ -83,6 +83,7 @@ export default {
       let newUrl = `https://www.youtube.com/embed/${getVideoId[1]}`
       this.noteData.info.url = newUrl
       noteService.save(this.noteData).then(()=> {
+        this.$emit('updateData')
         document.getElementById(this.cmpId).value = ''
         this.isEditable = false
       })

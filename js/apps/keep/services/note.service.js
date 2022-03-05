@@ -36,7 +36,6 @@ function save(note) {
 
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY);
-  console.log('notes',notes);
   if (!notes || !notes.length) {
     notes = [
       {

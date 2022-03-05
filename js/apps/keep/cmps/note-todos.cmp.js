@@ -38,8 +38,8 @@ export default {
   methods: {
     toggleDone(idx) {
       if(this.isEditable) return
-      console.log(this.info.todos[idx].doneAt)
-      this.info.todos[idx].doneAt = (this.info.todos[idx].doneAt) ? null : Date.now()
+      this.noteData.info.todos[idx].doneAt = (this.noteData.info.todos[idx].doneAt) ? null : Date.now()
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     deleteNote(){
       noteService.remove(this.noteData.id).then(()=> {
@@ -51,20 +51,20 @@ export default {
       console.log('this.noteData',this.noteData.info.todos);
       this.noteData.info.todos.splice(idx, 1)
       console.log('this.noteData',this.noteData.info.todos);
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setColor(color) {
       this.noteData.style.color = 'black'
       this.noteData.style.backgroundImage = ''
       this.noteData.style.backgroundColor = color
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setBgImage(url){
       console.log('url',url);
       this.noteData.style.color = 'black'
       this.noteData.style.backgroundColor = ''
       this.noteData.style.backgroundImage = `url(${url})`
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setPin() {
       if(!this.noteData.isPinned ) {
@@ -79,7 +79,7 @@ export default {
       if(!this.noteData.isMarked){
         this.noteData.isMarked = true
       } else this.noteData.isMarked = !this.noteData.isMarked
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setClone() {
       let copyNote = {...this.noteData}
@@ -104,7 +104,7 @@ export default {
       let copyInfo = {...copyNote.info}
       copyNote.info = copyInfo
       copyNote.info.todos = todos
-      noteService.save(copyNote)
+      noteService.save(copyNote).then(()=> this.$emit('updateData'))
     },
     removeShowEdit() {
       if(this.isEditable) this.focus = true

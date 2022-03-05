@@ -43,14 +43,14 @@ export default {
       this.noteData.style.color = 'black'
       this.noteData.style.backgroundImage = ''
       this.noteData.style.backgroundColor = color
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setBgImage(url){
       console.log('url',url);
       this.noteData.style.color = 'black'
       this.noteData.style.backgroundColor = ''
       this.noteData.style.backgroundImage = `url(${url})`
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setPin() {
       if(!this.noteData.isPinned ) {
@@ -65,7 +65,7 @@ export default {
       if(!this.noteData.isMarked){
         this.noteData.isMarked = true
       } else this.noteData.isMarked = !this.noteData.isMarked
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     setClone() {
       let copyNote = {...this.noteData}
@@ -85,7 +85,7 @@ export default {
         this.noteData.info.title = document.getElementById(`${this.cmpId}`).children[0].innerText
         this.noteData.info.txt = document.getElementById(`${this.cmpId}`).children[1].innerText
       }
-      noteService.save(this.noteData)
+      noteService.save(this.noteData).then(()=> this.$emit('updateData'))
     },
     removeShowEdit() {
       if(this.isEditable) this.focus = true

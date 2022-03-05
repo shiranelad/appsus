@@ -17,7 +17,6 @@ export default {
                 <i @click="setType('todos')" class="fas fa-list fa-lg note-icons"></i>
                 <i @click="setType('img')" class="far fa-image fa-lg note-icons"></i>
                 <i @click="setType('video')" class="fab fa-youtube fa-lg note-icons"></i>
-                <!-- <i @click="setType('audio')" class="fas fa-volume-up fa-lg note-icons"></i> -->
               </div>
             </div>
           </div>
