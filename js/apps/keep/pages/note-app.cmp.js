@@ -7,10 +7,10 @@ export default {
   // props: [""],
   template: `
         <section class="note-app main-content notes-layout roboto">
-            <div v-if="isModalOpen" class="screen-for-modal" @click="closeScreen"></div>
-            <note-filter></note-filter>
-            <note-add></note-add>
-            <note-list></note-list>
+          <div v-if="isModalOpen" class="screen-for-modal" @click="closeScreen"></div>
+          <note-filter></note-filter>
+          <note-add></note-add>
+          <note-list></note-list>
         </section>
     `,
   components: {

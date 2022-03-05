@@ -5,10 +5,10 @@
 }
 .homepage-header {
     position: absolute;
-    font-size: 30px;
+    font-size: 37px;
     font-family: Cinzel, sans-serif;
     top: 30px;
-    left: 30px;
+    left: 20px;
     z-index: 2;
 }
 .homepage-header span {
@@ -37,6 +37,7 @@
     border-radius: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.651);
     transition: all .3s;
+    position: relative;
 }
 
 .homepage-nav-button:hover {
@@ -50,7 +51,7 @@
     padding: 1rem 0;
     border-radius: 1rem;
     z-index: 2;
-    max-height: 70vh;
+    max-height: calc(100vh - 237px);
     overflow: hidden;
 }
 .about-content p {
@@ -62,13 +63,28 @@
 }
 
 .horse-logo-div {
-    background-image: url(../../img/bg-home.png);
-    height: 500px;
-    width: 500px;
+    background-image: url(../../img/horse-icon.png);
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
     background-position-x: 50%;
     top: calc(50vh - 360px);
     z-index: 0;
+    width: 30vw;
+    height: 30vw;
+    transform: translateY(100px);
+    min-width: 270px;
+    min-height: 270px;
+    max-width: 370px;
+    max-height: 370px;
+}
+
+.bottom-shadow {
+    box-shadow: 4px 7px 17px 8px #4c282882;
+    width: 68%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    background: transparent;
+    border-radius: 50%;
 }
