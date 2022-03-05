@@ -42,6 +42,7 @@ export default {
         )
 
     this.unsubscribe = eventBus.on('compose', this.showCompose);
+    this.unsubscribe_2 = eventBus.on('searchCriteria', this.searchAndView);
 
   },
   data() {
@@ -58,11 +59,17 @@ export default {
         isDraft: null,
     },
       isCompose: null,
+      criteria: null,
     }
   },
   methods: {
     selectEmail(email) {
       this.selectedEmail = email;
+    },
+
+    searchAndView(searchCriteria){
+      console.log(searchCriteria)
+
     },
 
     updateList(){
@@ -158,5 +165,7 @@ export default {
   },
   unmounted() { 
     this.unsubscribe();
+    this.unsubscribe_2();
+
   },
 }

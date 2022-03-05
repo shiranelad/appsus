@@ -7,7 +7,7 @@
     width: 100%;
     max-width:90vw;
     min-width:70vw;
-
+    background-color: var(--clr7);
 }
 
 .user-icon {

@@ -18,12 +18,14 @@ export default {
                             <span class="to"><b>To {{email.to}}<b></span>
                         </div>
                     </div>
-                    <span class="email-date">{{dispDateTime}}</span>
+                    <div class="flex justify-center align-center">
+                    <span class="email-date">{{dispDateTime}}
+                    <i class="icon compose-delete compose-icon" title="Delete Draft" @click="deleteDraft"></i>
+                    </span>
+                    </div>
+                    
                 </div>
                 <div class="email-body align-center">{{email.body}}</div>
-
-                <button @click="composeMail">edit</button>
-                <button>delete</button>
             </section>
         </section>
     `,
