@@ -53,6 +53,10 @@ const routes = [
                 path: '/email/important',
                 component: emailList
             },
+            {
+                path: '/email/search',
+                component: emailList
+            },
         ]
     },
     {
