@@ -3,11 +3,11 @@
     background-color: var(--clr7);
     border-radius: 8px 8px 0 0;
     /* border: 1px solid black; */
-    bottom:60px;
+    bottom: 60px;
     right:20px;
     /* height:608px; */
     width: 608px;
-    /* z-index: 3; */
+    z-index: 3;
     /* display:block;
     margin:0 ; */
 }

@@ -28,7 +28,7 @@ export default {
                 <button class="compose-send" @click="sendEmail">Send</button>
                 <div class="send-save flex align-center">
                     <i class="compose-save icon compose-icon" title="Save Draft" @click="saveDraft"></i>
-                    <i class="icon compose-delete compose-icon" title="Delete Draft"></i>
+                    <i class="icon compose-delete compose-icon" title="Delete Draft" @click="deleteDraft"></i>
                 </div>
             </div>
         </section>
@@ -66,6 +66,8 @@ export default {
             emailService.save(this.draft)
             .then(email => this.draft.id = email.id)
             this.$router.push(this.$route.path + '?compose=' + this.draft.id)
+            this.$emit('saveDraft', true);
+            eventBus.emit('show-msg', {txt: 'Draft Saved', type:'success'})
     },
 
     closeDraft(){
