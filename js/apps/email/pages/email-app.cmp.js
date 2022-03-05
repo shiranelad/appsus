@@ -50,7 +50,7 @@ export default {
         isImportant: null, 
         to: emailService.getLoggedInUser().email, 
         from: '', 
-        isDeleted: null,
+        isDeleted: false,
         isDraft: null,
     },
       isCompose: null,
@@ -68,7 +68,7 @@ export default {
         isImportant: null, 
         to: emailService.getLoggedInUser().email, 
         from: '', 
-        isDeleted: null,
+        isDeleted: false,
         isDraft: null,
     }
 
@@ -110,7 +110,7 @@ export default {
       if (!this.emails || !this.emails.length) return;
       if (!this.filterBy) return this.emails;
 
-      // emailService.getFilter(this.emails, this.filterBy, filterBy)
+      // emailService.getFilter(this.emails, this.filterBy)
       if(this.filterBy.isStarred){
         return this.emails.filter(email => email.isStarred === this.filterBy.isStarred && !email.isDeleted)
       }

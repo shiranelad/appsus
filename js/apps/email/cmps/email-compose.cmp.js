@@ -10,8 +10,9 @@ export default {
                     <tr>
                         <td class="new-message">New Message</td>
                         <td class="header-icons">
-                            <i class="minimize icon" label="Minimize"></i>
-                            <i class="pop-out icon" label="Pop-Out"></i>
+                            <i class="minimize" label="Minimize">dd</i>
+                            <i class="pop-out" label="Pop-Out"></i>
+                        </td>
                     </tr>
                     </tbody>
                 </table>  

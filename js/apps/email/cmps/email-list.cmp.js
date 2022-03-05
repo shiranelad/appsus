@@ -32,7 +32,8 @@ export default {
     data() {
         return {
             selectedEmail: null,
-            interval: null
+            interval: null,
+            emailsList: null
         }
     },
     methods: {
@@ -50,13 +51,12 @@ export default {
                 email.isDeleted = true
                 emailService.updateEmail(email)
                 return
-            } })
-
-            emailService.remove(id)
+            } else emailService.remove(id)
                 .then(() => {
                     const idx = this.emails.findIndex(email => email.id === id)
                     this.emails.splice(idx, 1)
                 })
+            })
         },
 
         getSelected(email){

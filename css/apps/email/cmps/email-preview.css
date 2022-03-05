@@ -49,15 +49,39 @@ li:not(:last-child){
 
 .emails-table{
     background-color: var(--clr8);
-    height:100%;
+    background:none;
+    /* height:748px; */
     margin-top:30px;
     margin-left:100px;
     padding:0;
     /* border: 1px solid black; */
     max-width:90vw;
     min-width:70vw;
-    overflow: hidden;
+    overflow-x: hidden;
+}
 
+.email-list{
+    height:728px;
+    min-height:498px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:relative;
+    display:block;
+    
+}
+
+.emails-list::-webkit-scrollbar{
+    width:10px;
+    height:16px;
+}
+
+.emails-list::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+.emails-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    --webkit-box-shadow: inset 1px 1px 0px rgb(0 0 0 / 10%), inset 0px -1px 0px rgb(0 0 0 / 7%);
 }
 
 .email-from {

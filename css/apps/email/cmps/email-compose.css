@@ -91,6 +91,7 @@
 }
 .compose-header .header-icons{
     z-index: 4;
+    padding:0;
 }
 
 .compose-body{
