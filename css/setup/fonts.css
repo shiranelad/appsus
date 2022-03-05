@@ -23,3 +23,7 @@
     font-family: 'Google Sans-Medium';
     src: url('../../fonts/DM_Sans/DMSans-Medium.ttf');
 }
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../../fonts/Cinzel/Cinzel-Regular.ttf');
+}
