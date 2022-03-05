@@ -7,6 +7,7 @@ import emailSidebar from '../cmps/email-sidebar.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailDetails from '../pages/email-details.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
+import { router } from '../../../router.js'
 // import emailSearch from '../cmps/email-search.cmp.js'
 
 
@@ -19,7 +20,7 @@ export default {
     <email-sidebar @filterBy="setFilterBy"></email-sidebar>
     <email-list @updateView="updateList"  :emails="emailsToShow" @selected="selectEmail"></email-list>
     <email-details :email="selectedEmail" v-if="selectedEmail"></email-details>
-    <email-compose v-if="isCompose"></email-compose>
+    <email-compose v-if="isCompose" @closeCompose="closeCompose"></email-compose>
   </section>
 
     `,
@@ -107,8 +108,18 @@ export default {
 
     },
 
+    closeCompose(val){
+      if (val === true){
+        this.isCompose = !this.isCompose
+      }
+      console.log(this.isCompose)
+    },
+
+
     showCompose(c) {
       this.isCompose = c.isCompose
+
+      this.$router.push({path: c.currPath, query: { compose: 'new'}})
       // console.log(c.isCompose, this.isCompose)
       },
     },

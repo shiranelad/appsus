@@ -2,7 +2,7 @@
     padding: 0;
     margin-block-end: 0;
     margin-block-start: 0;
-    width:100%;
+    min-width:87vw;
 }
 
 .email-selected {

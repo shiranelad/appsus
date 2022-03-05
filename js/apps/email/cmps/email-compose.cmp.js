@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/eventBus-service.js"
 import { emailService } from "../services/email.service.js"
 
 export default {
@@ -10,8 +11,9 @@ export default {
                     <tr>
                         <td class="new-message">New Message</td>
                         <td class="header-icons">
-                            <i class="minimize" label="Minimize">dd</i>
-                            <i class="pop-out" label="Pop-Out"></i>
+                            <!-- <i class="minimize icon" label="Minimize"></i>
+                            <i class="pop-out icon" label="Pop-Out"></i> -->
+                            <i class="close icon" label="Close" @click="closeDraft"></i>
                         </td>
                     </tr>
                     </tbody>
@@ -21,7 +23,6 @@ export default {
                     <input type="text" class="compose-subject" v-model="draft.subject" placeholder="Subject">
                 </form> 
             </div>
-            <!-- <div class="compose-body" role="textbox" contenteditable="true" aria-multiline="true">{{draftBody}}</div> -->
             <textarea class="compose-body" role="textbox" contenteditable="true" aria-multiline="true" v-model="draft.body"></textarea>
             <div class="compose-toolbar flex align-center space-between">
                 <button class="compose-send" @click="sendEmail">Send</button>
@@ -57,15 +58,21 @@ console.log(this.draft)
     },
 
     saveDraft(){
-            // this.draft.isRead = true
             this.draft.from = emailService.getLoggedInUser().email
             this.draft.isDraft = true
-            // console.log(this.draft)
+            this.draft.sentAt = Date.now()
             emailService.save(this.draft)
+            .then(email => this.draft.id = email.id)
+            this.$router.push(this.$route.path + '?compose=' + this.draft.id)
     },
+
+    closeDraft(){
+        this.$emit('closeCompose', true);
+
+    }
   },
   computed: {},
   unmounted() { 
-    this.unsubscribe();
+    // this.unsubscribe();
   },
 }

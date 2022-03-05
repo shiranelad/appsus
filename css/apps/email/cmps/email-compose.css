@@ -58,40 +58,27 @@
 }
 
 .compose-header .header-icons .minimize {
-    background-image: url('../../../../img/outline_minimize_black_24dp.png');
-    background-position-x: 0;
-    background-position-y: -337px;
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-image: url('../../../../img/outline_minimize_white_24dp.png');
     opacity: 0.6;    
 }
 .compose-header .header-icons .pop-out {
-    background-image: url('	https://ssl.gstatic.com/ui/v1/icons/mail/expand_window.png') 0 0/24px no-repeat;
-    background-position-x: 0;
-    background-position-y: -377;
-    width:24px;
-    height:24px;
-    top:2px;
-    position:relative;
-    background-repeat: no-repeat;
-    background-size: auto;
-    opacity: 0.6;
+    background-image: url('https://ssl.gstatic.com/ui/v1/icons/mail/expand_window.png');
 }
 .compose-header .header-icons .close {
-    background-image: url('../../../../img/outline_close_black_24dp.png') ;
-    background-position-x: 0;
-    background-position-y: -144px;
-    width:24px;
-    height:24px;
-    top:2px;
-    position:relative;
-    background-repeat: no-repeat;
-    background-size: auto;
-    opacity: 0.6;
-}
+    background-image: url('../../../../img/outline_close_white_24dp.png') ;
+    }
 .compose-header .header-icons{
     z-index: 4;
-    padding:0;
+    padding:10px;
+    text-align:right;
+    vertical-align: center;
+}
+.compose-header .header-icons .icon{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.6;
+
 }
 
 .compose-body{

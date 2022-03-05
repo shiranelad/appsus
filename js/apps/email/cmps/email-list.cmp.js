@@ -12,11 +12,7 @@ export default {
                 <li v-for="email in emails" :key="email.id" :class="displaySelected(email)" >
                     <table class="main-layout">
                     <email-preview :currEmail="email" :currPath="currPath" @remove="removeEmail" @selected="getSelected(email)" @unselected="getUnSelected(email)"/>
-                    <!-- <router-link :to="'/email/'+email.id">Details</router-link> -->
                     </table>
-                    <!-- <div class="actions">
-                        <router-link :to="'/email/'+email.id">Details</router-link>
-                    </div> -->
                 </li>
             </ul>
         </section>
@@ -96,15 +92,19 @@ export default {
     //         },
 
     currPath(){
-        return this.$route.path
+        
+        if (this.$route.path === '/email/drafts/'){
+         return `${this.$routh.path}?compose=`
+        }
+        else return this.$route.path + '/'
     },
 
     checkEmails(){
         return (Array.isArray(this.emails) &&  this.emails.length > 0) ? false : true
 
     },
-},
+    },
     unmounted(){
         clearInterval(this.interval)
-    }
+    },
 }

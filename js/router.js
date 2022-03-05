@@ -7,6 +7,8 @@ import aboutPage from './pages/app-about.cmp.js'
 import emailDetails from './apps/email/pages/email-details.cmp.js';
 import emailList from './apps/email/cmps/email-list.cmp.js';
 import emailPreview from './apps/email/cmps/email-preview.cmp.js';
+import emailSidebarCmp from './apps/email/cmps/email-sidebar.cmp.js';
+import emailCompose from './apps/email/cmps/email-compose.cmp.js';
 // import bookDetails from './views/book-details.cmp.js';
 
 const routes = [
@@ -72,6 +74,11 @@ const routes = [
     {
         path: '/email/trash/:emailId',
         component: emailDetails,
+    },
+    {
+        path: '/email/drafts',
+        component: emailCompose,
+        query: {compose: 'emailId'}
     },
     // {
     //     path: '/email/:emailId',

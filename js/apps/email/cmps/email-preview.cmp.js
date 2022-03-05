@@ -13,11 +13,11 @@ export default {
                     <i class="icon imp" :class="impClass" @click="setImportant(currEmail)"></i>
                 </td>
                 <td class="email-from" :class="readClass">
-                        <router-link :to="currPath+'/'+currEmail.id" @click="openEmail(currEmail)" @click="setRead(currEmail)">{{displayToFrom}}</router-link>
+                        <router-link :to="currPath+currEmail.id" @click="openEmail(currEmail)" @click="setRead(currEmail)">{{displayToFrom}}</router-link>
                         <!-- <router-link :to="openEmail" @click="setRead(currEmail)">{{displayToFrom}}</router-link> -->
                 </td>
                 <td class="email-subject">
-                    <router-link :to="currPath+'/'+currEmail.id" @click="openEmail(currEmail)" @click="setRead(currEmail)">
+                    <router-link :to="setPath" @click="openEmail(currEmail)" @click="setRead(currEmail)">
                     <!-- <router-link @click="openEmail" @click="setRead(currEmail)"> -->
                         <span :class="readClass">{{currEmail.subject}}</span>
                         <span class="email-body-header"> - {{currEmail.body}}</span>
@@ -34,7 +34,7 @@ export default {
     },
     created() {
         this.currEmail.isSelected = false
-        console.log(this.currPath)
+        // if (this.currPath === '/email/drafts/') this.currPath = '/email/drafts?compose='
     },
     data() {
         return {
@@ -167,6 +167,12 @@ export default {
 
         readClass() {
             return { 'unread-status': !this.currEmail.isRead }
+        },
+
+        setPath(){
+            console.log(this.currPath)
+            if(this.currPath === '/email/drafts/') return `/email/drafts?compose=${this.currEmail.id}`
+            else return `${this.currPath}${this.currEmail.id}`
         }
 
 

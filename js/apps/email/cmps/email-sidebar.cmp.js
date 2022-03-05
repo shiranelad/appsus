@@ -78,8 +78,7 @@ export default {
       else this.emailNum = `(${e.emailNum})`
   },
   composeMail(){
-    eventBus.emit('compose', {isCompose: true})
-    console.log('hi')
+    eventBus.emit('compose', {isCompose: true , currPath: this.$route.path })
   }
 
   
