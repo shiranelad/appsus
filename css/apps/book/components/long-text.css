@@ -1,0 +1,10 @@
+ /* long-text */
+ .readmore {
+    background-color: transparent;
+    border: 0;
+    color:blue;
+ }
+ .readmore:hover{
+     text-decoration: underline;
+ }
+ 

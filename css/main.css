@@ -12,6 +12,9 @@
 @import 'cmps/app-home.css';
 @import 'cmps/user-msg.css';
 
+/* BOOK */
+@import 'apps/book/style.css';
+
 /* KEEP */
 @import 'apps/keep/notes-list.css';
 @import 'apps/keep/notes-add.css';
