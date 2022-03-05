@@ -33,10 +33,13 @@
     }
     .app-header {
         flex-direction: column;
-        height: fit-content;
+        height: 90px;
     }
     .nav-bar {
         margin-block-end: 5px;
+    }
+    .main-content {
+        min-height: calc(100vh - 150px);
     }
 }
 
