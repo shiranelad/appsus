@@ -22,7 +22,7 @@ export default {
                 <div class="input-group">
                     <label for="read">Read</label>
                     <input type="checkbox" checked name="" id="read" v-model="criteria.read">
-                    <label for="read">Unread</label>
+                    <label for="unread">Unread</label>
                     <input type="checkbox" checked name="" id="unread" v-model="criteria.unread">
                 </div class="input-group">
                 <div class="action-buttons">

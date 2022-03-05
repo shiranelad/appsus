@@ -68,9 +68,11 @@ export default {
     },
 
     searchAndView(searchCriteria){
-      console.log(searchCriteria)
+      // console.log(searchCriteria)
+      this.$router.push({path: '/email/search'})
+        this.criteria = searchCriteria
+      },
 
-    },
 
     updateList(){
       emailService.query()
@@ -138,6 +140,20 @@ export default {
       
       // console.log(this.emails)
       if (!this.emails || !this.emails.length) return;
+
+      if(!!this.criteria){
+        const free = new RegExp(this.criteria.freetext, 'i');
+        const from = new RegExp(this.criteria.from, 'i');
+        const to = new RegExp(this.criteria.to, 'i');
+        const subject = new RegExp(this.criteria.subject, 'i');
+        return this.emails.filter(email => (free.test(email.body) || free.test(email.subject) || free.test(email.from) || free.test(email.to))  
+        && (from.test(email.from)) 
+        && to.test(email.to) 
+        && subject.test(email.subject)
+        && (email.isRead === this.criteria.read || email.isRead !== this.criteria.unread)
+        )
+      }
+
       if (!this.filterBy) return this.emails;
 
       // emailService.getFilter(this.emails, this.filterBy)
