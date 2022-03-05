@@ -22,10 +22,10 @@ export default {
                     </div>
                     <div class="flex justify-center align-center">
                     <span class="email-date">{{dispDateTime}}
+                    <i class="icon send-note" title="Send email as a note" @click="sendNote"></i>
                     <i class="icon compose-delete compose-icon" title="Delete Mail" @click="deleteMail"></i>
                     </span>
                     </div>
-                    <button class="send-note" @click="sendNote">Send as a Note</button>
                     
                 </div>
                 <div class="email-body align-center">{{email.body}}</div>
