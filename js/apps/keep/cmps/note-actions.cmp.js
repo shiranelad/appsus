@@ -7,9 +7,9 @@ export default {
                 <i v-if="noteType === 'note-video'" title="Text note" class="fab fa-youtube visible "></i>
                 <i v-if="noteType === 'note-txt'" title="Text note" class="fas fa-font visible"></i>
                 <i v-if="noteType === 'note-todos'" title="Text note" class="fas fa-list visible"></i>
-                <i @click="emitPin" title="Pin note" class="fas fa-thumbtack" :class="darkModeColor"></i> 
-                <i @click="emitMark" title="Mark note" class="fas fa-check marked " :class="darkModeColor"></i> 
-                <i title="Change note color" @click.stop="openDropdown" class="fas fa-palette info colors dropdown " :class="darkModeColor">
+                <i @click="emitPin" title="Pin note" class="fas fa-thumbtack" ></i> 
+                <i @click="emitMark" title="Mark note" class="fas fa-check marked " ></i> 
+                <i title="Change note color" @click.stop="openDropdown" class="fas fa-palette info colors dropdown " >
                     <div class="dropdown-content" :class="onDropdownClick">
                         <span @click="emitColor('#e8eaed')" style="background-color: #e8eaed;"> &nbsp; </span>
                         <span @click="emitColor('#e6c9a8')" style="background-color: #e6c9a8;"> &nbsp; </span>
@@ -35,9 +35,9 @@ export default {
                         <span @click="emitColor('#fff')" class="bg-img-note set-no-background" style="background-color: #fff"> &nbsp; </span>
                     </div>
                 </i> 
-                <i @click="emitEdit" title="Edit note" class="fas fa-edit " :class="darkModeColor"></i> 
-                <i @click="emitClone" title="Clone note" class="fas fa-clone info " :class="darkModeColor"></i> 
-                <i @click="emitDelete" title="Delete note" class="fas fa-trash-alt danger" :class="darkModeColor"></i>
+                <i @click="emitEdit" title="Edit note" class="fas fa-edit " ></i> 
+                <i @click="emitClone" title="Clone note" class="fas fa-clone info " ></i> 
+                <i @click="emitDelete" title="Delete note" class="fas fa-trash-alt danger" ></i>
             </aside>
     `,
   components: {},
@@ -80,10 +80,6 @@ export default {
     }
   },
   computed: {
-    darkModeColor() {
-      if(this.darkMode === true || this.fontColor === 'white') return 'notes-dark-mode'
-      else return 'note-icons'
-    },
     onDropdownClick(){
       return (this.isDropdownOpen) ? 'onclick-dropdown-content' : ''
     }

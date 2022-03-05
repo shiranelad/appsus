@@ -11,7 +11,7 @@ export default {
   template: `
         <section class="note-cards-container">
           <div v-for="(cmp, idx) in notes" class="cmp-note-container">
-            <component v-if="cmp.isPinned" :is="cmp.type"  :info="{...cmp.info}" :cmpData="{...cmp}" :style="cmp.style" @updateData="updateData"></component>
+            <component v-if="cmp.isPinned" :is="cmp.type" :info="{...cmp.info}" :cmpData="{...cmp}" :style="cmp.style" @updateData="updateData"></component>
           </div>
         </section>
         <br>
