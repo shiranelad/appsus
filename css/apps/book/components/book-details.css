@@ -1,0 +1,45 @@
+/* book-details */
+
+.book-details .title {
+    text-transform: capitalize;
+    color: #102e4a;
+}
+
+.book-details p {
+    margin: 0;
+}
+
+.book-details .reading {
+    background-color: #a682ff;
+    width:fit-content;
+}
+
+.book-details .publish {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    /* background-color:white; */
+
+}
+
+.book-details .sale {
+    width: 70px;
+    height: 50px;
+    position:absolute;
+    top:-390px;
+    left:10px;
+}
+
+.book-details .bookimg {
+    margin-top: 20px;
+}
+.book-details span {
+    position: relative;
+}
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
