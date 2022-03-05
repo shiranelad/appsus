@@ -1,0 +1,63 @@
+.home-page {
+    background-image: url('../../img/bg-home.png');
+    background-position: center;
+    position: relative;
+    align-items: flex-end;
+    background-size: contain;
+    background-position-y: -120px;
+    background-color: white;
+    background-repeat: no-repeat;
+    padding-block-start: 100px;
+}
+.homepage-header {
+    position: absolute;
+    font-size: 30px;
+    font-family: Cinzel, sans-serif;
+    top: 30px;
+    left: 30px;
+}
+.homepage-header span {
+    font-size: 40px;
+    color: rgb(34, 34, 34);
+}
+.homepage-nav {
+    width: 50%;
+    justify-content: space-evenly;
+    height: 70px;
+    color: white;
+    font-size: 24px;
+    font-family: 'Google sans', sans-serif;
+    cursor: pointer;
+    margin-bottom: 160px;
+}
+.homepage-nav-button {
+    background-color: rgba(27, 27, 27, 0.815);
+    height: 100%;
+    width: 100%;
+    min-width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.651);
+    transition: all .3s;
+}
+
+.homepage-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.952);
+}
+
+.about-content{
+    margin: 0 30px;
+    font-family: 'Google sans', sans-serif;
+    background-color: #ffffff8a;
+    padding: 1rem 0;
+    border-radius: 1rem;
+}
+.about-content p {
+    margin-block-end: 1rem;
+    margin-block-start: .2rem;
+}
+.about-content h3 {
+    margin-block-end: .5rem;
+}

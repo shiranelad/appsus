@@ -13,6 +13,9 @@
     .note-cards-container{
         column-count: 2;
     }
+    .home-page {
+        background-size: cover;
+    }
 }
 
 @media (max-width: 580px) {
@@ -22,6 +25,13 @@
     .note-card {
         margin: 1rem auto;
     }
+    .homepage-nav {
+        margin-bottom: 30px;
+        flex-direction: column;
+        height: 30vh;
+        width: 70vw;
+    }
+    
 }
 
 @media (max-width: 460px) {

@@ -3,7 +3,7 @@
 .app-footer {
     background-color: var(--clr1);
     color: var(--clr5);
-    height: 50px;
+    height: 60px;
 }
 
 .app-header {
@@ -13,8 +13,11 @@
 }
 
 .app-header h3 , .nav-bar a{
-
-    color: var(--clr5);
+    font-family: 'Google sans', sans-serif;
+}
+.app-header h3 {
+    font-size: 40px;
+    font-family: Cinzel, sans-serif;
 }
 
 .app-header a {
@@ -24,5 +27,7 @@
 
 .app-footer p {
     text-align: center;
-    padding: 15px;
+    padding: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
