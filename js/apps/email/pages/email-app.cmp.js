@@ -2,7 +2,7 @@ import { emailService } from '../services/email.service.js'
 import { showSuccessMsg, showErrorMsg } from '../../../services/eventBus-service.js'
 import { eventBus } from '../../../services/eventBus-service.js'
 import { utilService } from '../../../services/util.service.js'
-// import emailFilter from '../cmps/email-filter.cmp.js'
+import emailFilter from '../cmps/email-filter.cmp.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailDetails from '../pages/email-details.cmp.js'
@@ -16,7 +16,7 @@ export default {
   template: `
   <section class="main-layout main-content flex relative">
     <!-- <email-filter @filtered="setFilter" ></email-filter> -->
-    
+    <email-filter></email-filter>
     <email-sidebar @filterBy="setFilterBy"></email-sidebar>
     <email-list @updateView="updateList"  :emails="emailsToShow" @selected="selectEmail"></email-list>
     <email-details :email="selectedEmail" v-if="selectedEmail"></email-details>
@@ -26,6 +26,7 @@ export default {
     `,
   components: {
     emailService,
+    emailFilter,
     emailSidebar,
     emailCompose,
     emailList,
