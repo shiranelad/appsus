@@ -50,3 +50,8 @@
         justify-content: space-evenly;
     }
 }
+@media (max-height: 840px) {
+    .horse-logo-div {
+        top: 20vh;
+    }
+}
