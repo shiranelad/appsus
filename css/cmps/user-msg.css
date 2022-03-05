@@ -1,0 +1,17 @@
+.user-msg {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    height: 60px;
+    width: auto;
+    padding: 0 10px 0 10px;
+    border-radius: .5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success {
+    background-color: rgba(32, 173, 32, 0.705);
+}

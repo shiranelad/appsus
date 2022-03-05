@@ -4,7 +4,6 @@ import { eventBus } from '../../../services/eventBus-service.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
 
-
 export default {
     template: `
         <section v-if="email" class="email-details flex main-layout main-content">
@@ -86,3 +85,8 @@ export default {
         this.unsubscribe();
     },
 }
+
+
+// import { noteService } from '../../keep/services/note.service.js'
+
+// noteService.createTxtNote(this.email.subject, this.email.body)

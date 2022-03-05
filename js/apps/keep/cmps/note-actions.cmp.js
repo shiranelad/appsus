@@ -4,9 +4,9 @@ export default {
   template: `
         <aside class="note-item-actions flex space-between" :class="onDropdownClick" >
                 <i v-if="noteType === 'note-img'" title="Image note" class="far fa-image visible"></i>
-                <i v-if="noteType === 'note-video'" title="Text note" class="fab fa-youtube visible "></i>
+                <i v-if="noteType === 'note-video'" title="Video note" class="fab fa-youtube visible "></i>
                 <i v-if="noteType === 'note-txt'" title="Text note" class="fas fa-font visible"></i>
-                <i v-if="noteType === 'note-todos'" title="Text note" class="fas fa-list visible"></i>
+                <i v-if="noteType === 'note-todos'" title="List note" class="fas fa-list visible"></i>
                 <i @click="emitPin" title="Pin note" class="fas fa-thumbtack" ></i> 
                 <i @click="emitMark" title="Mark note" class="fas fa-check marked " ></i> 
                 <i title="Change note color" @click.stop="openDropdown" class="fas fa-palette info colors dropdown " >

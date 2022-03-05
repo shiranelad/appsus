@@ -10,6 +10,7 @@
 /* COMPONENTS */
 @import 'cmps/app-header-footer.css';
 @import 'cmps/app-home.css';
+@import 'cmps/user-msg.css';
 
 /* KEEP */
 @import 'apps/keep/notes-list.css';
