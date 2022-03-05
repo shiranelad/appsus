@@ -5,9 +5,9 @@
     /* border: 1px solid black; */
     bottom:32px;
     right:20px;
-    height:608px;
+    /* height:608px; */
     width: 608px;
-    z-index: 3;
+    /* z-index: 3; */
     /* display:block;
     margin:0 ; */
 }
@@ -108,6 +108,7 @@
     font-size: .875rem;
     font-family:'Roboto';
     overflow: auto;
+    resize:none;
 }
 
 .compose-body::-webkit-scrollbar{

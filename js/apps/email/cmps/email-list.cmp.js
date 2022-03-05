@@ -45,12 +45,18 @@ export default {
            },
                 
         removeEmail(id) {
+            emailService.getEmailById(id)
+            .then(email => { if(!email.isDeleted) {
+                email.isDeleted = true
+                emailService.updateEmail(email)
+                return
+            } })
+
             emailService.remove(id)
                 .then(() => {
                     const idx = this.emails.findIndex(email => email.id === id)
                     this.emails.splice(idx, 1)
                 })
-                this.calcUnread()
         },
 
         getSelected(email){

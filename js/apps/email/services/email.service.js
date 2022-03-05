@@ -35,7 +35,8 @@ function _createEmails() {
                 isSelected: false,
                 isStarred: false,
                 isImportant: false, 
-                isDraft: false,
+                isDraft: false, isDeleted: false, 
+                isDeleted: false,
             },
             {
                 id: "e102",
@@ -49,7 +50,8 @@ function _createEmails() {
                 isSelected: false,
                 isStarred: false,
                 isImportant: false, 
-                isDraft: false,
+                isDraft: false, 
+                isDeleted: false,
             },
             {
                 id: "e103",
@@ -63,7 +65,8 @@ function _createEmails() {
                 isSelected: false,
                 isStarred: false,
                 isImportant: false, 
-                isDraft: false,
+                isDraft: false, 
+                isDeleted: false,
             },
             {
                 id: "e104",
@@ -77,7 +80,8 @@ function _createEmails() {
                 isSelected: false,
                 isStarred: false,
                 isImportant: false, 
-                isDraft: false,
+                isDraft: false, 
+                isDeleted: false,
             },
             {
                 id: "e105",
@@ -90,7 +94,8 @@ function _createEmails() {
                 isSelected: false,
                 isStarred: false,
                 isImportant: false, 
-                isDraft: false,
+                isDraft: false, 
+                isDeleted: false,
             },
             {
                 id: "e106",
@@ -105,6 +110,7 @@ function _createEmails() {
                 isStarred: false,
                 isImportant: false, 
                 isDraft: false,
+                isDeleted: false,
             },
             {
                 id: "e107",
@@ -119,6 +125,7 @@ function _createEmails() {
                 isStarred: false,
                 isImportant: false, 
                 isDraft: false,
+                isDeleted: false,
             },
             {
                 id: "e108",
@@ -133,6 +140,7 @@ function _createEmails() {
                 isStarred: false,
                 isImportant: false, 
                 isDraft: false,
+                isDeleted: false,
             },
             {
                 id: "e109",
@@ -147,6 +155,7 @@ function _createEmails() {
                 isStarred: false,
                 isImportant: false, 
                 isDraft: false,
+                isDeleted: false,
             },
             {
                 id: "e110",
@@ -161,6 +170,7 @@ function _createEmails() {
                 isStarred: false,
                 isImportant: false, 
                 isDraft: false,
+                isDeleted: false,
             },
             {
                 id: "e111",
@@ -175,6 +185,7 @@ function _createEmails() {
                 isStarred: false,
                 isImportant: false, 
                 isDraft: true,
+                isDeleted: false,
             },
         ]
     }
@@ -228,7 +239,8 @@ function getEmptyEmail(){
         labels: [],
         isStarred: false,
         isImportant: false, 
-        isDraft: false,
+        isDraft: false, isDeleted: false,
+        isDeleted: false,
     }
 }
 

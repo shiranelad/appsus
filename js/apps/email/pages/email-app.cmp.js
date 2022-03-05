@@ -112,22 +112,22 @@ export default {
 
       // emailService.getFilter(this.emails, this.filterBy, filterBy)
       if(this.filterBy.isStarred){
-        return this.emails.filter(email => email.isStarred === this.filterBy.isStarred)
+        return this.emails.filter(email => email.isStarred === this.filterBy.isStarred && !email.isDeleted)
       }
       if(this.filterBy.isImportant){
-        return this.emails.filter(email => email.isImportant === this.filterBy.isImportant)
+        return this.emails.filter(email => email.isImportant === this.filterBy.isImportant && !email.isDeleted)
       }
       if(this.filterBy.isDraft){
-        return this.emails.filter(email => email.isDraft === this.filterBy.isDraft)
+        return this.emails.filter(email => email.isDraft === this.filterBy.isDraft && !email.isDeleted)
       }
       if(this.filterBy.isDeleted){
         return this.emails.filter(email => email.isDeleted === this.filterBy.isDeleted)
       }
       if(this.filterBy.from){
-        return this.emails.filter(email => email.from === this.filterBy.from)
+        return this.emails.filter(email => email.from === this.filterBy.from && !email.isDeleted)
       }
       if(this.filterBy.to){
-        return this.emails.filter(email => email.to === this.filterBy.to)
+        return this.emails.filter(email => email.to === this.filterBy.to && !email.isDeleted)
       }
     },
 
