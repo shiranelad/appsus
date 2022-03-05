@@ -68,9 +68,11 @@ export default {
     },
 
     searchAndView(searchCriteria){
-      console.log(searchCriteria)
+      // console.log(searchCriteria)
+      this.$router.push({path: '/email/search'})
+        this.criteria = searchCriteria
+      },
 
-    },
 
     updateList(){
       emailService.query()
@@ -138,6 +140,9 @@ export default {
       
       // console.log(this.emails)
       if (!this.emails || !this.emails.length) return;
+
+      if(!!this.criteria)
+
       if (!this.filterBy) return this.emails;
 
       // emailService.getFilter(this.emails, this.filterBy)

@@ -1,8 +1,10 @@
 import { utilService } from '../../../services/util.service.js'
 import { emailService } from '../services/email.service.js'
 import { eventBus } from '../../../services/eventBus-service.js'
+import { noteService } from '../../keep/services/note.service.js'
 import emailSidebar from '../cmps/email-sidebar.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
+
 
 export default {
     template: `
@@ -20,9 +22,10 @@ export default {
                     </div>
                     <div class="flex justify-center align-center">
                     <span class="email-date">{{dispDateTime}}
-                    <i class="icon compose-delete compose-icon" title="Delete Draft" @click="deleteDraft"></i>
+                    <i class="icon compose-delete compose-icon" title="Delete Mail" @click="deleteMail"></i>
                     </span>
                     </div>
+                    <button class="send-note" @click="sendNote">Send as a Note</button>
                     
                 </div>
                 <div class="email-body align-center">{{email.body}}</div>
@@ -48,6 +51,14 @@ export default {
         }
     },
     methods: {
+
+      
+        sendNote(){
+            noteService.createTxtNote(this.email.subject, this.email.body)
+        },
+        deleteMail(){
+              emailService.remove(this.email)
+            },
         
         loadEmail() {
             emailService.getEmailById(this.emailId)
@@ -87,8 +98,3 @@ export default {
         this.unsubscribe();
     },
 }
-
-
-// import { noteService } from '../../keep/services/note.service.js'
-
-// noteService.createTxtNote(this.email.subject, this.email.body)
