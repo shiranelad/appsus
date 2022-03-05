@@ -130,7 +130,6 @@ export default {
       this.isCompose = c.isCompose
 
       this.$router.push({path: c.currPath, query: { compose: 'new'}})
-      // console.log(c.isCompose, this.isCompose)
       },
     },
 
@@ -138,7 +137,6 @@ export default {
 
     emailsToShow() {
       
-      // console.log(this.emails)
       if (!this.emails || !this.emails.length) return;
 
       if(!!this.criteria){
@@ -156,7 +154,6 @@ export default {
 
       if (!this.filterBy) return this.emails;
 
-      // emailService.getFilter(this.emails, this.filterBy)
       if(this.filterBy.isStarred){
         return this.emails.filter(email => email.isStarred === this.filterBy.isStarred && !email.isDeleted)
       }
@@ -176,7 +173,6 @@ export default {
         return this.emails.filter(email => email.to === this.filterBy.to && !email.isDeleted)
       }
     },
-
 
   },
   unmounted() { 

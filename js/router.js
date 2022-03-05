@@ -88,10 +88,6 @@ const routes = [
         component: emailCompose,
         query: {compose: 'emailId'}
     },
-    // {
-    //     path: '/email/:emailId',
-    //     component: emailDetails,
-    // },
     {
         path: '/keep',
         component: keepApp,

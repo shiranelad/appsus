@@ -1,12 +1,12 @@
 .subject {
-    color:black;
-    
+    color: black;
+
 }
 
 .display-email {
     width: 100%;
-    max-width:90vw;
-    min-width:70vw;
+    max-width: 90vw;
+    min-width: 70vw;
     background-color: var(--clr7);
 }
 
@@ -15,27 +15,41 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-size:50px;
+    background-size: 50px;
     width: 100px;
-    height:100px;
-    display:inline-block;
-    
+    height: 100px;
+    display: inline-block;
+
 }
 
-.to{
+.to {
     opacity: 0.5;
     font-size: 0.8em;
 }
 
-.display-email{
-    height:50vh;
-    padding-right: 20px; 
+.display-email {
+    height: 50vh;
+    padding-right: 20px;
 }
 
-.email-body{
+.email-body {
     margin-left: 28px;
 }
 
-.email-date{
+.email-date {
     font-size: 0.8em;
+}
+
+.send-note {
+    background-image: url('../../../../img/send-note.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    margin: 0 5px;
+
+}
+
+.send-note:hover {
+    transform: scale(1.2);
 }

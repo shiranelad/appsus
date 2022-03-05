@@ -14,11 +14,9 @@ export default {
                 </td>
                 <td class="email-from" :class="readClass">
                         <router-link :to="currPath+currEmail.id" @click="openEmail(currEmail)" @click="setRead(currEmail)">{{displayToFrom}}</router-link>
-                        <!-- <router-link :to="openEmail" @click="setRead(currEmail)">{{displayToFrom}}</router-link> -->
                 </td>
                 <td class="email-subject">
                     <router-link :to="setPath" @click="openEmail(currEmail)" @click="setRead(currEmail)">
-                    <!-- <router-link @click="openEmail" @click="setRead(currEmail)"> -->
                         <span :class="readClass">{{currEmail.subject}}</span>
                         <span class="email-body-header"> - {{currEmail.body}}</span>
                     </router-link>
@@ -34,7 +32,7 @@ export default {
     },
     created() {
         this.currEmail.isSelected = false
-        // if (this.currPath === '/email/drafts/') this.currPath = '/email/drafts?compose='
+
     },
     data() {
         return {
@@ -71,7 +69,6 @@ export default {
 
         setRead(email) {
             email.isRead = true
-            // if (this.currEmail.isRead) return
             emailService.updateEmail(email)
                 .then(e => this.currEmail = e)
             return email
@@ -127,33 +124,7 @@ export default {
                 return this.currEmail.to
             else return this.currEmail.from
         },
-        // dispDateTime(emailDate) {
-        //     // let dt = new Date(this.currEmail.sentAt)
-        //     let dt = new Date(emailDate)
-        //     var hours = dt.getHours()
-        //     var minutes = dt.getMinutes()
-        //     var ampm = (hours < 12 ? 'AM' : 'PM')
-        //     if (ampm === 'PM' && hours > 12) {
-        //         hours = hours - 12
-        //     }
-        //     if (minutes < 10) minutes = '0' + minutes
-
-        //     var monthName = dt.toLocaleString('default', { month: 'short' })
-
-        //     let todayDisp = hours + ':' + minutes + ' ' + ampm
-        //     let monthDisp = monthName + ' ' + dt.getDate()
-        //     let yearDisp = dt.getDate() + '/' + (dt.getMonth() + 1) + '/' + dt.getFullYear()
-
-        //     var today = new Date()
-
-        //     if (dt.getDate() === today.getDate() && dt.getMonth() === today.getMonth() && dt.getFullYear() === today.getFullYear()) {
-        //         return todayDisp
-        //     }
-        //     else if (dt.getMonth() === today.getMonth() && dt.getFullYear() === today.getFullYear())
-        //         return monthDisp
-        //     else return yearDisp
-        // },
-
+        
         setReadUnread() {
             if (this.currEmail.isRead) {
                 this.markRead = 'Mark as Unread'
@@ -174,9 +145,6 @@ export default {
             if(this.currPath === '/email/drafts/') return `/email/drafts?compose=${this.currEmail.id}`
             else return `${this.currPath}${this.currEmail.id}`
         }
-
-
-
     },
     unmounted() { },
 }
