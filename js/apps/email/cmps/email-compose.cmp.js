@@ -48,13 +48,15 @@ export default {
         this.draft.from = emailService.getLoggedInUser().email
         this.draft.isDraft = false
         this.draft.sentAt = Date.now()
-console.log(this.draft)
+        // console.log(this.draft)
         emailService.save(this.draft)
+        this.closeDraft()
         
     },
 
     deleteDraft(){
         emailService.remove(this.draft)
+        this.closeDraft()
     },
 
     saveDraft(){
