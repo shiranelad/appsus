@@ -3,6 +3,7 @@ export default {
   template: `
         <section class="main-content home-page flex justify-center">
           <div class="homepage-header">About <span>Appsus</span></div>
+          <div class="horse-logo-div"></div>
           <div class="about-content">
             <h3>Our app was created to serve well anyone</h3>
             <p>Who needs to manage his time, remind himself his tasks, Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -2,7 +2,7 @@ export default {
   // props: [""],
   template: `
         <section class="app-header">
-        <router-link to="/"><h3 class="main-layout">Appsus</h3></router-link>
+        <router-link to="/"><h3 class="main-layout">Appsus <span class="span-logo"></span></h3></router-link>
         <nav class="nav-bar main-layout">
                 <router-link to="/">Home</router-link> |
                 <router-link to="/book">Books</router-link> |

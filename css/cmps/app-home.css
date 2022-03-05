@@ -1,13 +1,7 @@
 .home-page {
-    background-image: url('../../img/bg-home.png');
-    background-position: center;
     position: relative;
     align-items: flex-end;
-    background-size: contain;
-    background-position-y: -120px;
     background-color: white;
-    background-repeat: no-repeat;
-    padding-block-start: 100px;
 }
 .homepage-header {
     position: absolute;
@@ -15,6 +9,7 @@
     font-family: Cinzel, sans-serif;
     top: 30px;
     left: 30px;
+    z-index: 2;
 }
 .homepage-header span {
     font-size: 40px;
@@ -29,6 +24,7 @@
     font-family: 'Google sans', sans-serif;
     cursor: pointer;
     margin-bottom: 160px;
+    z-index: 2;
 }
 .homepage-nav-button {
     background-color: rgba(27, 27, 27, 0.815);
@@ -53,6 +49,9 @@
     background-color: #ffffff8a;
     padding: 1rem 0;
     border-radius: 1rem;
+    z-index: 2;
+    max-height: 70vh;
+    overflow: hidden;
 }
 .about-content p {
     margin-block-end: 1rem;
@@ -60,4 +59,16 @@
 }
 .about-content h3 {
     margin-block-end: .5rem;
+}
+
+.horse-logo-div {
+    background-image: url(../../img/bg-home.png);
+    height: 500px;
+    width: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    background-position-x: 50%;
+    top: calc(50vh - 360px);
+    z-index: 0;
 }
