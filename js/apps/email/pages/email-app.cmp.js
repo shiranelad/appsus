@@ -20,7 +20,7 @@ export default {
     <email-sidebar @filterBy="setFilterBy"></email-sidebar>
     <email-list @updateView="updateList"  :emails="emailsToShow" @selected="selectEmail"></email-list>
     <email-details :email="selectedEmail" v-if="selectedEmail"></email-details>
-    <email-compose v-if="isCompose" @closeCompose="closeCompose"></email-compose>
+    <email-compose v-if="isCompose" @closeCompose="closeCompose" @saveDraft="updateList"></email-compose>
   </section>
 
     `,

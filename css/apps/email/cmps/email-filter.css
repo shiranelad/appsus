@@ -1,5 +1,5 @@
 .email-filter{
-    position: fixed;
+    position: absolute;
     top: 55px;
     line-height: 20px;
     left: 220px;
@@ -17,20 +17,20 @@
 
 .criteria{
     width:300px;
-    height:300px;
-    padding: 10px 10px;
+    /* height:300px; */
+    padding: 10px 20px;
     background-color:white;
     position:fixed;
     z-index: 5;
-    gap: 10px;   
+    gap: 10px; 
+    border-radius: 8px;
+    font-size: 0.875rem;
 }
 
-.criteria > input {
-    border: 0;
-    border-bottom: 1px solid var(--clr16);
+.input-group > input {
+    border:0 ;
     outline: 0;
-    border:0;
-    
+    border-bottom: 1px solid var(--clr16);    
 }
 
 .input-group{
@@ -40,3 +40,7 @@
     border: 0;
 }
 
+.email-filter .action-buttons{
+    display: flex;
+    justify-content: center;
+}
