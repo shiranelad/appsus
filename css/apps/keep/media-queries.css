@@ -31,7 +31,13 @@
         height: 30vh;
         width: 70vw;
     }
-    
+    .app-header {
+        flex-direction: column;
+        height: fit-content;
+    }
+    .nav-bar {
+        margin-block-end: 5px;
+    }
 }
 
 @media (max-width: 460px) {

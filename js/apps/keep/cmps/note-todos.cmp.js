@@ -44,6 +44,7 @@ export default {
     deleteNote(){
       noteService.remove(this.noteData.id).then(()=> {
         this.$emit('updateData')
+        eventBus.emit('show-msg', {txt: 'Removed Succesfully!', type:'success'})
         if(this.openNote) eventBus.emit('closeScreen')
       })
     },

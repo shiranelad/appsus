@@ -5,7 +5,7 @@ export default {
         <section>
           <div class="search-notes flex justify-center">
             <input @keyup="searchNotes" v-model="val" type="text" placeholder="Search in notes">
-            <button @click="searchNotes" style="line-height: 0">Search</button>
+            <button @click="searchNotes" style="line-height: 0; margin: 0 0 0 0.5rem;">Search</button>
           </div>
         </section>
     `,

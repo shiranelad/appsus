@@ -45,7 +45,6 @@ export default {
       this.noteData.style.backgroundImage = ''
       this.noteData.style.backgroundColor = color
       noteService.save(this.noteData).then(()=> this.$emit('updateData'))
-      
     },
     setBgImage(url){
       console.log('url',url);
@@ -74,6 +73,7 @@ export default {
       copyNote.id = null
       noteService.save(copyNote).then(()=>{
         this.$emit('updateData')
+        eventBus.emit('show-msg', {txt: 'Cloned Succesfully!', type:'success'})
       })
     },
     setEdit() {
