@@ -36,6 +36,7 @@ export default {
     deleteNote(){
       noteService.remove(this.noteData.id).then(()=>{
         this.$emit('updateData')
+        eventBus.emit('show-msg', {txt: 'Removed Succesfully!', type:'success'})
         if(this.openNote) eventBus.emit('closeScreen')
       })
     },
@@ -44,6 +45,7 @@ export default {
       this.noteData.style.backgroundImage = ''
       this.noteData.style.backgroundColor = color
       noteService.save(this.noteData).then(()=> this.$emit('updateData'))
+      
     },
     setBgImage(url){
       console.log('url',url);

@@ -54,6 +54,7 @@ export default {
       this.noteType = "text";
       setTimeout(() => {
         eventBus.emit('updateByBus')
+        eventBus.emit('show-msg', {txt: 'Added Succesfully!', type:'success'})
       }, 500);
     },
     setType(type) {
