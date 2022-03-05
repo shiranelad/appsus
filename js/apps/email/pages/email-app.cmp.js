@@ -17,7 +17,7 @@ export default {
     <!-- <email-filter @filtered="setFilter" ></email-filter> -->
     
     <email-sidebar @filterBy="setFilterBy"></email-sidebar>
-    <email-list :emails="emailsToShow"  @selected="selectEmail"></email-list>
+    <email-list @updateView="updateList"  :emails="emailsToShow" @selected="selectEmail"></email-list>
     <email-details :email="selectedEmail" v-if="selectedEmail"></email-details>
     <email-compose v-if="isCompose"></email-compose>
   </section>
@@ -35,7 +35,9 @@ export default {
   created() {
     emailService.query()
       .then(emails => {
-        this.emails = emails})
+        this.emails = emails}
+        
+        )
 
     this.unsubscribe = eventBus.on('compose', this.showCompose);
 
@@ -59,6 +61,13 @@ export default {
   methods: {
     selectEmail(email) {
       this.selectedEmail = email;
+    },
+
+    updateList(){
+      emailService.query()
+      .then(emails => {
+        this.emails = emails
+      })
     },
 
     setFilterBy(filterBy){
@@ -100,13 +109,15 @@ export default {
 
     showCompose(c) {
       this.isCompose = c.isCompose
-      console.log(c.isCompose, this.isCompose)
+      // console.log(c.isCompose, this.isCompose)
       },
     },
 
     computed: {
 
     emailsToShow() {
+      
+      // console.log(this.emails)
       if (!this.emails || !this.emails.length) return;
       if (!this.filterBy) return this.emails;
 

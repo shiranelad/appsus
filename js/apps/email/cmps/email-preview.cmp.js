@@ -2,7 +2,7 @@ import { utilService } from '../../../services/util.service.js'
 import { emailService } from '../services/email.service.js';
 
 export default {
-    props: ['currEmail'],
+    props: ['currEmail', 'currPath'],
     template: `
             <tr>
                 <td><i class="icon email-checkbox" :class="checkboxClass" @click="selectWithCheck(currEmail)"></i></td>
@@ -13,10 +13,12 @@ export default {
                     <i class="icon imp" :class="impClass" @click="setImportant(currEmail)"></i>
                 </td>
                 <td class="email-from" :class="readClass">
-                        <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">{{displayToFrom}}</router-link>
+                        <router-link :to="currPath+'/'+currEmail.id" @click="openEmail(currEmail)" @click="setRead(currEmail)">{{displayToFrom}}</router-link>
+                        <!-- <router-link :to="openEmail" @click="setRead(currEmail)">{{displayToFrom}}</router-link> -->
                 </td>
                 <td class="email-subject">
-                    <router-link :to="'/email/'+currEmail.id" @click="setRead(currEmail)">
+                    <router-link :to="currPath+'/'+currEmail.id" @click="openEmail(currEmail)" @click="setRead(currEmail)">
+                    <!-- <router-link @click="openEmail" @click="setRead(currEmail)"> -->
                         <span :class="readClass">{{currEmail.subject}}</span>
                         <span class="email-body-header"> - {{currEmail.body}}</span>
                     </router-link>
@@ -32,6 +34,7 @@ export default {
     },
     created() {
         this.currEmail.isSelected = false
+        console.log(this.currPath)
     },
     data() {
         return {
@@ -96,6 +99,7 @@ export default {
 
     },
     computed: {
+
         starClass() {
             return { starred: this.currEmail.isStarred, star: !this.currEmail.isStarred }
         },

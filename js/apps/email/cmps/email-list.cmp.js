@@ -11,7 +11,7 @@ export default {
                 <div v-if="checkEmails" class="no-mails" >No Emails to display</div>
                 <li v-for="email in emails" :key="email.id" :class="displaySelected(email)" >
                     <table class="main-layout">
-                    <email-preview :currEmail="email" @remove="removeEmail" @selected="getSelected(email)" @unselected="getUnSelected(email)"/>
+                    <email-preview :currEmail="email" :currPath="currPath" @remove="removeEmail" @selected="getSelected(email)" @unselected="getUnSelected(email)"/>
                     <!-- <router-link :to="'/email/'+email.id">Details</router-link> -->
                     </table>
                     <!-- <div class="actions">
@@ -50,11 +50,13 @@ export default {
             .then(email => { if(!email.isDeleted) {
                 email.isDeleted = true
                 emailService.updateEmail(email)
+                .then(() => this.$emit('updateView'))
                 return
             } else emailService.remove(id)
                 .then(() => {
                     const idx = this.emails.findIndex(email => email.id === id)
                     this.emails.splice(idx, 1)
+                    this.$emit('updateView')
                 })
             })
         },
@@ -92,6 +94,10 @@ export default {
     //         // else {
     //             return { 'email-item' : !this.selectedEmail , 'email-selected' : !!this.selectedEmail}
     //         },
+
+    currPath(){
+        return this.$route.path
+    },
 
     checkEmails(){
         return (Array.isArray(this.emails) &&  this.emails.length > 0) ? false : true

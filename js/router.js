@@ -5,6 +5,8 @@ import keepApp from './apps/keep/pages/note-app.cmp.js'
 // import bookApp from './apps/book/pages/book-app.cmp.js'
 import aboutPage from './pages/app-about.cmp.js'
 import emailDetails from './apps/email/pages/email-details.cmp.js';
+import emailList from './apps/email/cmps/email-list.cmp.js';
+import emailPreview from './apps/email/cmps/email-preview.cmp.js';
 // import bookDetails from './views/book-details.cmp.js';
 
 const routes = [
@@ -19,11 +21,62 @@ const routes = [
     {
         path: '/email',
         component: emailApp,
+        children: [
+            {
+                path: '/email/inbox',
+                component: emailList
+            },
+                
+            {
+                path: '/email/starred',
+                component: emailList
+            },
+            {
+                path: '/email/sent',
+                component: emailList
+            },
+            {
+                path: '/email/drafts',
+                component: emailList
+            },
+            {
+                path: '/email/trash',
+                component: emailList
+            },
+            {
+                path: '/email/important',
+                component: emailList
+            },
+        ]
     },
     {
-        path: '/email/:emailId',
+        path: '/email/inbox/:emailId',
         component: emailDetails,
     },
+    {
+        path: '/email/starred/:emailId',
+        component: emailDetails,
+    },
+    {
+        path: '/email/important/:emailId',
+        component: emailDetails,
+    },
+    {
+        path: '/email/sent/:emailId',
+        component: emailDetails,
+    },
+    {
+        path: '/email/drafts/:emailId',
+        component: emailDetails,
+    },
+    {
+        path: '/email/trash/:emailId',
+        component: emailDetails,
+    },
+    // {
+    //     path: '/email/:emailId',
+    //     component: emailDetails,
+    // },
     {
         path: '/keep',
         component: keepApp,
