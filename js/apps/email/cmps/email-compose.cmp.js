@@ -49,6 +49,8 @@ export default {
         this.draft.isDraft = false
         this.draft.sentAt = Date.now()
         emailService.save(this.draft)
+        this.$emit('sendEmail', true);
+        eventBus.emit('show-msg', {txt: 'Mail sent', type:'success'})
         this.closeDraft()
         
     },
