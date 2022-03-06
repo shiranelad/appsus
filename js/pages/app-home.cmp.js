@@ -9,16 +9,19 @@ export default {
                 <router-link :to="'/book/'">
                 To Book App
                 </router-link>
+                <div class="bottom-shadow"></div>
             </div>
             <div class="homepage-nav-button">
                 <router-link :to="'/email/'">
                 To Mail App
                 </router-link>
+                <div class="bottom-shadow"></div>
             </div>
             <div class="homepage-nav-button">
                 <router-link :to="'/keep/'">
                 To Keep App
                 </router-link>
+                <div class="bottom-shadow"></div>
             </div>
           </div>
         </section>
