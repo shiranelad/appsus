@@ -1,4 +1,4 @@
-/* SMALL */
+/* SMALL
 
 @media (min-width: 640px) {
 
@@ -8,20 +8,20 @@
 
 /* MEDIUM */
 
-@media (min-width: 880px) {
+/* @media (min-width: 880px) { */
 
-    .email-list{
+    /* .email-list{ */
         /* min-width: 60vw; */
-    }
-    .email-time{
+    /* } */
+    /* .email-time{ */
         /* display: inline-block; */
-    }
-}
+    /* } */
+/* } */
 
 /* large */
 
-@media (min-width: 1400px) {
-   .email-list{
+/* @media (min-width: 1400px) {
+   .email-list{ */
        /* min-width: 87vh; */
-   }
-}
+   /* }
+} */ 
