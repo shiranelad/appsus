@@ -133,6 +133,7 @@ table:hover > tr > td > i {
 
 table:hover > tr > .action-icons  {
     display:flex;
+    /* justify-content: flex-end; */
 }
 
 table:hover > tr > .email-time {
